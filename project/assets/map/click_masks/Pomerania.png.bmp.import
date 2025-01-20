@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://iuf1ybws01uk"
+path="res://.godot/imported/Pomerania.png.bmp-de4b4479a04ee99a1c49fadb51a99ae8.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Pomerania.png.bmp"
+dest_files=["res://.godot/imported/Pomerania.png.bmp-de4b4479a04ee99a1c49fadb51a99ae8.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

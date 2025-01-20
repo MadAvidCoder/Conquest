@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://smt8t1xt1lia"
+path="res://.godot/imported/London.png.bmp-b2919055381f389b82fcda0528c6d24f.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/London.png.bmp"
+dest_files=["res://.godot/imported/London.png.bmp-b2919055381f389b82fcda0528c6d24f.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

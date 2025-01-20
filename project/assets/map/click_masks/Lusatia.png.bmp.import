@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bcikme7fvc34c"
+path="res://.godot/imported/Lusatia.png.bmp-3c41ffa5b01de35867db6ff457b3affc.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Lusatia.png.bmp"
+dest_files=["res://.godot/imported/Lusatia.png.bmp-3c41ffa5b01de35867db6ff457b3affc.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

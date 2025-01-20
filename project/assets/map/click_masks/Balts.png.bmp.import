@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bpysd6qcuvgkf"
+path="res://.godot/imported/Balts.png.bmp-1e291e2ddae40368ec6dc3485d24c407.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Balts.png.bmp"
+dest_files=["res://.godot/imported/Balts.png.bmp-1e291e2ddae40368ec6dc3485d24c407.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://xf15iqs50u38"
+path="res://.godot/imported/Wales.png.bmp-59205bc5cf2a6218763fb2cf4e0b45bc.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Wales.png.bmp"
+dest_files=["res://.godot/imported/Wales.png.bmp-59205bc5cf2a6218763fb2cf4e0b45bc.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

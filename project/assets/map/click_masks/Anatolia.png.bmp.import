@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://clgwd1osd5ok5"
+path="res://.godot/imported/Anatolia.png.bmp-24c12ba6d7114c475d1722a785ad69cd.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Anatolia.png.bmp"
+dest_files=["res://.godot/imported/Anatolia.png.bmp-24c12ba6d7114c475d1722a785ad69cd.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

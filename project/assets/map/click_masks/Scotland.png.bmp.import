@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://6eoamhpovtuy"
+path="res://.godot/imported/Scotland.png.bmp-e8c48f2ef8a34c5fef5c853570b2475a.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Scotland.png.bmp"
+dest_files=["res://.godot/imported/Scotland.png.bmp-e8c48f2ef8a34c5fef5c853570b2475a.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://b5luku5w7sb17"
+path="res://.godot/imported/Bavaria.png.bmp-1aea7ca3499ffd611f6a782d8bfa46b5.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Bavaria.png.bmp"
+dest_files=["res://.godot/imported/Bavaria.png.bmp-1aea7ca3499ffd611f6a782d8bfa46b5.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

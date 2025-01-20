@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://deyy2bl2q3nyk"
+path="res://.godot/imported/Sweden.png.bmp-3072a09d118852f3d47ea41a8c3320f5.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Sweden.png.bmp"
+dest_files=["res://.godot/imported/Sweden.png.bmp-3072a09d118852f3d47ea41a8c3320f5.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

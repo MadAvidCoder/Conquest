@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://cjw7paglmv3yj"
+path="res://.godot/imported/Frisia.png.bmp-3a5babae6c59b41f0654d9017a58648c.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Frisia.png.bmp"
+dest_files=["res://.godot/imported/Frisia.png.bmp-3a5babae6c59b41f0654d9017a58648c.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

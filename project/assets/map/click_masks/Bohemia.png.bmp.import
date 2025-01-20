@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dycmm3js644dr"
+path="res://.godot/imported/Bohemia.png.bmp-0395168160b7d4add978c61a1265d3c3.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Bohemia.png.bmp"
+dest_files=["res://.godot/imported/Bohemia.png.bmp-0395168160b7d4add978c61a1265d3c3.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

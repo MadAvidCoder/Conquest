@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dciewnavd1stc"
+path="res://.godot/imported/Al-Andalus.png.bmp-8b828302ff3b93faa6770bef23774c42.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Al-Andalus.png.bmp"
+dest_files=["res://.godot/imported/Al-Andalus.png.bmp-8b828302ff3b93faa6770bef23774c42.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://c0pf0lim84p2u"
+path="res://.godot/imported/Ribe.png.bmp-eb0d93ad463b16838be66869bbe726b8.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Ribe.png.bmp"
+dest_files=["res://.godot/imported/Ribe.png.bmp-eb0d93ad463b16838be66869bbe726b8.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

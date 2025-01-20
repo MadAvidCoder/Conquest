@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://b1e5p0hv5jd62"
+path="res://.godot/imported/Thuringia.png.bmp-186ee6953ce40c9299300fc92d9a5157.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Thuringia.png.bmp"
+dest_files=["res://.godot/imported/Thuringia.png.bmp-186ee6953ce40c9299300fc92d9a5157.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

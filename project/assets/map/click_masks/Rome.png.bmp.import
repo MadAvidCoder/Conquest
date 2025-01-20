@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://c8wnt5emny1e3"
+path="res://.godot/imported/Rome.png.bmp-221f644e06a2c22cea63a98124c6a63c.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Rome.png.bmp"
+dest_files=["res://.godot/imported/Rome.png.bmp-221f644e06a2c22cea63a98124c6a63c.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

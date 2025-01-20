@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bc0hb5yklejf6"
+path="res://.godot/imported/Rostov.png.bmp-478ea3d94df00c2c50479ad9a490c6be.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Rostov.png.bmp"
+dest_files=["res://.godot/imported/Rostov.png.bmp-478ea3d94df00c2c50479ad9a490c6be.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

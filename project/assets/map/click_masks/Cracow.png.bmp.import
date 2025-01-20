@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://n0dnksday4u7"
+path="res://.godot/imported/Cracow.png.bmp-7c5ff1314c2d5d7a0bda9cdbc23f8edb.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Cracow.png.bmp"
+dest_files=["res://.godot/imported/Cracow.png.bmp-7c5ff1314c2d5d7a0bda9cdbc23f8edb.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

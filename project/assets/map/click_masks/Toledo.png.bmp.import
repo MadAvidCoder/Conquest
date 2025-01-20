@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bu8d0e6i6scd4"
+path="res://.godot/imported/Toledo.png.bmp-ea532435a693a8f245d966e54609665b.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Toledo.png.bmp"
+dest_files=["res://.godot/imported/Toledo.png.bmp-ea532435a693a8f245d966e54609665b.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

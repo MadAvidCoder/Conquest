@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://js7uj4vym47l"
+path="res://.godot/imported/Aachen.png.bmp-730be443035f043732afe43dd6861a7a.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Aachen.png.bmp"
+dest_files=["res://.godot/imported/Aachen.png.bmp-730be443035f043732afe43dd6861a7a.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dkx0ocrx2ep0h"
+path="res://.godot/imported/Budapest.png.bmp-b607bd7ce907752991aff7a4c4fac1ff.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Budapest.png.bmp"
+dest_files=["res://.godot/imported/Budapest.png.bmp-b607bd7ce907752991aff7a4c4fac1ff.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

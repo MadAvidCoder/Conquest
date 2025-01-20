@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://drr26nwkwxf0b"
+path="res://.godot/imported/Kiev.png.bmp-e3f9d431550ee92192aaad71a2fbdfb8.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Kiev.png.bmp"
+dest_files=["res://.godot/imported/Kiev.png.bmp-e3f9d431550ee92192aaad71a2fbdfb8.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

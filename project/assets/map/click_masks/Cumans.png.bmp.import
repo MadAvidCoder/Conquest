@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://css6djkxpc48p"
+path="res://.godot/imported/Cumans.png.bmp-cf2541a7bdc1e7e856975211babd3b7c.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Cumans.png.bmp"
+dest_files=["res://.godot/imported/Cumans.png.bmp-cf2541a7bdc1e7e856975211babd3b7c.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dkv5n4xq8cqs0"
+path="res://.godot/imported/Bulgaria.png.bmp-2c9d8c4d273c9e8e39a8f1705833ae2f.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Bulgaria.png.bmp"
+dest_files=["res://.godot/imported/Bulgaria.png.bmp-2c9d8c4d273c9e8e39a8f1705833ae2f.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

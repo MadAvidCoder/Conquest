@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bm0ljfinf1sgb"
+path="res://.godot/imported/Granada.png.bmp-b9010af7a28a8b6fb3a0b32079b522b8.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Granada.png.bmp"
+dest_files=["res://.godot/imported/Granada.png.bmp-b9010af7a28a8b6fb3a0b32079b522b8.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dyf2u8fwn7olt"
+path="res://.godot/imported/Norway.png.bmp-8a9ad1c9755879496a8accf0d4138f66.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Norway.png.bmp"
+dest_files=["res://.godot/imported/Norway.png.bmp-8a9ad1c9755879496a8accf0d4138f66.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

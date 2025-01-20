@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://d0cdhrjrrly1m"
+path="res://.godot/imported/Palermo.png.bmp-ac05f7747da118569b05421c622ad75e.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Palermo.png.bmp"
+dest_files=["res://.godot/imported/Palermo.png.bmp-ac05f7747da118569b05421c622ad75e.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bod87iwn56juj"
+path="res://.godot/imported/Pechenegs.png.bmp-9b7cad6926009cd69d61fc04ad851e6f.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Pechenegs.png.bmp"
+dest_files=["res://.godot/imported/Pechenegs.png.bmp-9b7cad6926009cd69d61fc04ad851e6f.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

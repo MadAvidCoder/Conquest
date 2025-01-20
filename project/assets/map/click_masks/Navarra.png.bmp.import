@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://drfv22mmux2c2"
+path="res://.godot/imported/Navarra.png.bmp-88cebfd5a77d4f5952a360f3689d3248.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Navarra.png.bmp"
+dest_files=["res://.godot/imported/Navarra.png.bmp-88cebfd5a77d4f5952a360f3689d3248.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

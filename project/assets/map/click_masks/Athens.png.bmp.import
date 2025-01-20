@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://csevc7d6icbk4"
+path="res://.godot/imported/Athens.png.bmp-b107f2ef4d4584b58c0102394d62610c.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Athens.png.bmp"
+dest_files=["res://.godot/imported/Athens.png.bmp-b107f2ef4d4584b58c0102394d62610c.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

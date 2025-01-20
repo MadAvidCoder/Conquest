@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://yesmgwa6xyp4"
+path="res://.godot/imported/Lorraine.png.bmp-02489b96f8177a288949d3cac88d2156.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Lorraine.png.bmp"
+dest_files=["res://.godot/imported/Lorraine.png.bmp-02489b96f8177a288949d3cac88d2156.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

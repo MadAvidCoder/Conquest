@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bg0rubqasfys7"
+path="res://.godot/imported/Ireland.png.bmp-0961c5adfc05b612c6fb6117c588cdae.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Ireland.png.bmp"
+dest_files=["res://.godot/imported/Ireland.png.bmp-0961c5adfc05b612c6fb6117c588cdae.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

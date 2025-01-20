@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://ce663ucs5fhc3"
+path="res://.godot/imported/Lusitania.png.bmp-505809f001fd8248eb63fec38576b172.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Lusitania.png.bmp"
+dest_files=["res://.godot/imported/Lusitania.png.bmp-505809f001fd8248eb63fec38576b172.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://rjygxcktl6w6"
+path="res://.godot/imported/Brittany.png.bmp-a6bdb1ed07b1c882b72f48fc0c7afbde.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Brittany.png.bmp"
+dest_files=["res://.godot/imported/Brittany.png.bmp-a6bdb1ed07b1c882b72f48fc0c7afbde.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

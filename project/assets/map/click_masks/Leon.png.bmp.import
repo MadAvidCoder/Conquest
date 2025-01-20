@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dsp0cu6ryuryj"
+path="res://.godot/imported/Leon.png.bmp-f562656ea2cf369f16e158a5cd2ca69a.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Leon.png.bmp"
+dest_files=["res://.godot/imported/Leon.png.bmp-f562656ea2cf369f16e158a5cd2ca69a.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://37uixt536cpi"
+path="res://.godot/imported/Serbia.png.bmp-58616944932105af2b416b80ad0c0b73.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Serbia.png.bmp"
+dest_files=["res://.godot/imported/Serbia.png.bmp-58616944932105af2b416b80ad0c0b73.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

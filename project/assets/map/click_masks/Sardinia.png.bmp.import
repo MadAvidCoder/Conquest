@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://cguotw20bbtit"
+path="res://.godot/imported/Sardinia.png.bmp-33dd6fd8186220fdfd00889d3590036f.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Sardinia.png.bmp"
+dest_files=["res://.godot/imported/Sardinia.png.bmp-33dd6fd8186220fdfd00889d3590036f.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

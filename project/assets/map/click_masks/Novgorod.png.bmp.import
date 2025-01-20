@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://b5xifv6cj3r51"
+path="res://.godot/imported/Novgorod.png.bmp-afa85be59abc3449e9fa7d43cf0ca5c6.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Novgorod.png.bmp"
+dest_files=["res://.godot/imported/Novgorod.png.bmp-afa85be59abc3449e9fa7d43cf0ca5c6.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

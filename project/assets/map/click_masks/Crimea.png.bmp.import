@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://r82odqe28kds"
+path="res://.godot/imported/Crimea.png.bmp-c8d04a76167addfcce54629b6d8a4561.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Crimea.png.bmp"
+dest_files=["res://.godot/imported/Crimea.png.bmp-c8d04a76167addfcce54629b6d8a4561.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

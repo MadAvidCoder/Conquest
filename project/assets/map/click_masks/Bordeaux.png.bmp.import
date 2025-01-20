@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://chm11qqwsyu66"
+path="res://.godot/imported/Bordeaux.png.bmp-d3048209712bf7067c6829629562bad6.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Bordeaux.png.bmp"
+dest_files=["res://.godot/imported/Bordeaux.png.bmp-d3048209712bf7067c6829629562bad6.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

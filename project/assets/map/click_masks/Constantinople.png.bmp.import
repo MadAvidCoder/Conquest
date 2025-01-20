@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bsj7i22n70eux"
+path="res://.godot/imported/Constantinople.png.bmp-88384d9107356cc6a61a19c6368f6df6.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Constantinople.png.bmp"
+dest_files=["res://.godot/imported/Constantinople.png.bmp-88384d9107356cc6a61a19c6368f6df6.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

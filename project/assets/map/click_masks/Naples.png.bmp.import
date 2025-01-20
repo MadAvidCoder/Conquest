@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://cpy60v7i0y0af"
+path="res://.godot/imported/Naples.png.bmp-feeaa51e3565982a839e8a5392ef7f83.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Naples.png.bmp"
+dest_files=["res://.godot/imported/Naples.png.bmp-feeaa51e3565982a839e8a5392ef7f83.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

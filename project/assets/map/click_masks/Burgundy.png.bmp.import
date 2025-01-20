@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://ue80333nor2c"
+path="res://.godot/imported/Burgundy.png.bmp-741834336bc1e3ce5464b6aeeb508a17.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Burgundy.png.bmp"
+dest_files=["res://.godot/imported/Burgundy.png.bmp-741834336bc1e3ce5464b6aeeb508a17.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

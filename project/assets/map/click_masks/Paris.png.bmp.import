@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dnfl7aebyewm4"
+path="res://.godot/imported/Paris.png.bmp-f0e1f9d8da48887e7bcfdaf44c9b37ee.res"
+
+[deps]
+
+source_file="res://assets/map/click_masks/Paris.png.bmp"
+dest_files=["res://.godot/imported/Paris.png.bmp-f0e1f9d8da48887e7bcfdaf44c9b37ee.res"]
+
+[params]
+
+create_from=0
+threshold=0.5
