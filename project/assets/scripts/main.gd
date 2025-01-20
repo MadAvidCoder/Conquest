@@ -124,22 +124,23 @@ var phase: int = -1
 
 func _ready() -> void:
 	for i in COUNTRIES.values():
-		stats[i] = {}
-		stats[i]["relation"] = NEUTRAL
-		stats[i]["population"] = randi_range(20000, 50000)
-		stats[i]["pop_randomizer"] = randf_range(0.7, 1.3)
-		stats[i]["military"] = stats[i]["population"] * randf_range(0.1, 0.15)
-		stats[i]["tree"] = []
-		stats[i]["resources"] = {
-			"wood": randi_range(25, 60),
-			"stone": randi_range(20, 50),
-			"coal": randi_range(10, 25),
-			"grain": randi_range(25, 60),
-			"livestock": randi_range(20, 50),
-			"iron": clamp(randi_range(-10,20),0,20),
-			"gold": clamp(randi_range(-20,10),0,10),
-			"technology": randi_range(0,5),
+		stats[i] = {
+			"relation": NEUTRAL,
+			"population": randi_range(20000, 50000),
+			"pop_randomizer": randf_range(0.7, 1.3),
+			"tree": [],
+			"resources": {
+				"wood": randi_range(25, 60),
+				"stone": randi_range(20, 50),
+				"coal": randi_range(10, 25),
+				"grain": randi_range(25, 60),
+				"livestock": randi_range(20, 50),
+				"iron": clamp(randi_range(-10,20),0,20),
+				"gold": clamp(randi_range(-20,10),0,10),
+				"technology": randi_range(0,5),
+			},
 		}
+		stats[i]["military"] = stats[i]["population"] * randf_range(0.1, 0.15)
 		
 		# Opponent Masks
 		var new_texture = load("res://assets/map/opponent/"+i+".png")
