@@ -36,6 +36,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 250.0
 offset_bottom = 648.0
+mouse_filter = 2
 
 [node name="Fill" type="ColorRect" parent="Sidebar"]
 layout_mode = 1
@@ -44,6 +45,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0.588235)
 
 [node name="Title" type="Label" parent="Sidebar"]
@@ -57,13 +59,11 @@ offset_top = 5.0
 offset_right = 114.0
 offset_bottom = 62.0
 grow_horizontal = 2
-mouse_filter = 0
 theme_override_fonts/font = ExtResource("5_sn7en")
 theme_override_font_sizes/font_size = 47
 text = "CONQUEST"
 
 [node name="Territory" type="Label" parent="Sidebar" groups=["sidebar"]]
-visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -74,14 +74,12 @@ offset_top = 65.0
 offset_right = 99.5
 offset_bottom = 114.0
 grow_horizontal = 2
-mouse_filter = 0
 theme_override_fonts/font = ExtResource("6_0so7v")
 theme_override_font_sizes/font_size = 40
 text = "Scotland"
 horizontal_alignment = 1
 
 [node name="Controller" type="Label" parent="Sidebar" groups=["sidebar"]]
-visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -92,7 +90,6 @@ offset_top = 112.0
 offset_right = 78.0
 offset_bottom = 143.0
 grow_horizontal = 2
-mouse_filter = 0
 theme_override_colors/font_color = Color(0.768627, 0.768627, 0.768627, 1)
 theme_override_fonts/font = ExtResource("6_0so7v")
 theme_override_font_sizes/font_size = 25
@@ -100,12 +97,20 @@ text = "NEUTRAL"
 horizontal_alignment = 1
 
 [node name="Population" type="Label" parent="Sidebar" groups=["sidebar"]]
-visible = false
 z_index = 1
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-mouse_filter = 0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -72.0
+offset_top = 164.0
+offset_right = 72.0
+offset_bottom = 200.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 29
+text = "Pop. Unknown"
+horizontal_alignment = 1
 
 [node name="Cursor" type="Area2D" parent="."]
 

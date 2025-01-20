@@ -127,6 +127,7 @@ func _ready() -> void:
 		stats[i] = {}
 		stats[i]["relation"] = NEUTRAL
 		stats[i]["population"] = randi_range(20000, 50000)
+		stats[i]["pop_randomizer"] = randf_range(0.7, 1.3)
 		stats[i]["military"] = stats[i]["population"] * randf_range(0.1, 0.15)
 		stats[i]["tree"] = []
 		stats[i]["resources"] = {
@@ -176,6 +177,16 @@ func _ready() -> void:
 			new_collider.polygon = j
 			new_area.add_child(new_collider)
 
+func format_pop(pop: int) -> String:
+	if pop < 1_000:
+		return "Pop. " + str(pop)
+	elif pop < 1_000_000:
+		return "Pop. " + str(pop/1000) + "K"
+	elif pop < 1_000_000_000:
+		return "Pop. " + str(pop/1_000_000) + "M"
+	else:
+		return "Pop. " + str(pop/1_000_000_000) + "B"
+
 func _process(delta: float) ->  void:
 	cursor.position = get_global_mouse_position()
 	
@@ -188,15 +199,19 @@ func _process(delta: float) ->  void:
 					selection_marks[$Sidebar/Territory.text].hide()
 					$Sidebar/Territory.text = sel
 					selection_marks[sel].show()
+					
 					if stats[sel]["relation"] == ALLIED:
 						$Sidebar/Controller.text = "Allied"
 						$Sidebar/Controller.set("theme_override_colors/font_color", Color(0,1,0))
+						$Sidebar/Population.text = format_pop(stats[sel]["population"])
 					elif stats[sel]["relation"] == NEUTRAL:
 						$Sidebar/Controller.text = "Neutral"
 						$Sidebar/Controller.set("theme_override_colors/font_color", Color(0.77,0.77,0.77))
+						$Sidebar/Population.text = format_pop(stats[sel]["population"])
 					elif stats[sel]["relation"] == HOSTILE:
 						$Sidebar/Controller.text = "Hostile"
 						$Sidebar/Controller.set("theme_override_colors/font_color", Color(1,0,0))
+						$Sidebar/Population.text = "Est. "+format_pop(stats[sel]["population"] * stats[sel]["pop_randomizer"])
 		else:
 			get_tree().call_group("sidebar", "hide")
 			selection_marks[$Sidebar/Territory.text].hide()
