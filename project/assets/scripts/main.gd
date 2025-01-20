@@ -184,16 +184,10 @@ func _process(delta: float) ->  void:
 					elif stats[sel]["relation"] == HOSTILE:
 						$Sidebar/Controller.text = "Hostile"
 						$Sidebar/Controller.set("theme_override_colors/font_color", Color(1,0,0))
-	"""
-	if Input.is_action_just_pressed("ui_accept"):
-		index += 1
-		for i in NETWORK.values()[index-1]:
-			opposition_marks[i].hide()
-			selection_marks.values()[index-1].hide()
-		for i in NETWORK.values()[index]:
-			opposition_marks[i].show()
-			selection_marks.values()[index].show()
-	"""
+		else:
+			get_tree().call_group("sidebar", "hide")
+			selection_marks[$Sidebar/Territory.text].hide()
+
 	## Game Loop 
 	if phase == ATTACK:
 		# On selected (from) territorys
