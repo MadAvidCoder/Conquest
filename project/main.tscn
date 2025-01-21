@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnrwjhrn2he4a"]
+[gd_scene load_steps=16 format=3 uid="uid://dnrwjhrn2he4a"]
 
 [ext_resource type="Script" path="res://assets/scripts/main.gd" id="1_7whgk"]
 [ext_resource type="Texture2D" uid="uid://caqnsg7k3wsli" path="res://assets/map/background.png" id="2_u88cg"]
@@ -6,6 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://bc5vwvrpmnj4n" path="res://assets/map/borders.png" id="4_aepjq"]
 [ext_resource type="FontFile" uid="uid://r5av482limym" path="res://assets/fonts/bold.ttf" id="5_sn7en"]
 [ext_resource type="FontFile" uid="uid://bnqoj5ale4bce" path="res://assets/fonts/regular.ttf" id="6_0so7v"]
+[ext_resource type="Texture2D" uid="uid://2vvwvmkhmj2h" path="res://assets/resource_icons/wood.png" id="7_3xs03"]
+[ext_resource type="Texture2D" uid="uid://doqwr3h6vmdna" path="res://assets/resource_icons/stone.png" id="8_lnjj5"]
+[ext_resource type="Texture2D" uid="uid://bqhsxxl7uouvh" path="res://assets/resource_icons/grain.png" id="9_b83j0"]
+[ext_resource type="Texture2D" uid="uid://5q0e24qhaicf" path="res://assets/resource_icons/coal.png" id="10_1r7mj"]
+[ext_resource type="Texture2D" uid="uid://djbdghjf55fqu" path="res://assets/resource_icons/livestock.png" id="11_lqkxf"]
+[ext_resource type="Texture2D" uid="uid://h4tj8b23qh25" path="res://assets/resource_icons/iron.png" id="12_xebub"]
+[ext_resource type="Texture2D" uid="uid://brw6yqri4377m" path="res://assets/resource_icons/gold.png" id="13_186pv"]
+[ext_resource type="Texture2D" uid="uid://kt7hx78o7oyh" path="res://assets/resource_icons/technology.png" id="14_qbruy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u24va"]
 size = Vector2(1, 1)
@@ -172,32 +180,195 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -76.5
-offset_top = 214.0
+offset_top = 215.0
 offset_right = 76.5
-offset_bottom = 250.0
+offset_bottom = 251.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("6_0so7v")
 theme_override_font_sizes/font_size = 29
 text = "Army Unknown"
 horizontal_alignment = 1
 
-[node name="Phase" type="Label" parent="Sidebar"]
+[node name="WoodIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
+position = Vector2(58, 301)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("7_3xs03")
+
+[node name="WoodValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -76.5
+offset_left = -41.0
+offset_top = 289.0
+offset_right = 38.0
+offset_bottom = 325.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 25
+text = "100"
+
+[node name="StoneIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
+position = Vector2(155, 301)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("8_lnjj5")
+
+[node name="StoneValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 56.0
+offset_top = 289.0
+offset_right = 135.0
+offset_bottom = 325.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 25
+text = "100"
+
+[node name="GrainIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
+position = Vector2(58, 357)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("9_b83j0")
+
+[node name="GrainValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -41.0
+offset_top = 345.0
+offset_right = 38.0
+offset_bottom = 381.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 25
+text = "100"
+
+[node name="CoalIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
+position = Vector2(155, 357)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("10_1r7mj")
+
+[node name="CoalValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 56.0
+offset_top = 345.0
+offset_right = 135.0
+offset_bottom = 381.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 25
+text = "100"
+
+[node name="LivestockIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
+position = Vector2(58, 413)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("11_lqkxf")
+
+[node name="LivestockValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -41.0
+offset_top = 401.0
+offset_right = 38.0
+offset_bottom = 437.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 25
+text = "100"
+
+[node name="IronIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
+position = Vector2(155, 413)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("12_xebub")
+
+[node name="IronValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 56.0
+offset_top = 401.0
+offset_right = 135.0
+offset_bottom = 437.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 25
+text = "100"
+
+[node name="GoldIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
+position = Vector2(58, 469)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("13_186pv")
+
+[node name="GoldValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -41.0
+offset_top = 457.0
+offset_right = 38.0
+offset_bottom = 493.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 25
+text = "100"
+
+[node name="TechnologyIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
+position = Vector2(155, 469)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("14_qbruy")
+
+[node name="TechnologyValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 56.0
+offset_top = 457.0
+offset_right = 135.0
+offset_bottom = 493.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 25
+text = "100"
+
+[node name="Confirm" type="Button" parent="Sidebar" groups=["sidebar"]]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -84.5
 offset_top = 558.0
-offset_right = 76.5
-offset_bottom = 594.0
+offset_right = 84.5
+offset_bottom = 636.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("5_sn7en")
 theme_override_font_sizes/font_size = 29
-text = "ATTACK"
-horizontal_alignment = 1
+disabled = true
+text = "TRANSFER TO
+..."
 
 [node name="Cursor" type="Area2D" parent="."]
 
 [node name="Collider" type="CollisionShape2D" parent="Cursor"]
 shape = SubResource("RectangleShape2D_u24va")
+
+[connection signal="pressed" from="Sidebar/Confirm" to="." method="_on_confirm_pressed"]

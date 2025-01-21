@@ -126,6 +126,7 @@ var secondary: String = "Scotland"
 var phase: int = -1
 
 func _ready() -> void:
+	get_tree().call_group("sidebar", "hide")
 	for i in COUNTRIES.values():
 		stats[i] = {
 			"relation": NEUTRAL,
@@ -202,6 +203,12 @@ func format_army(army: int) -> String:
 	else:
 		return "Army " + str(army/1_000_000_000) + "B"
 
+func format_resource(resource: int) -> String:
+	if resource < 1_000:
+		return str(resource)
+	else:
+		return str(resource/1000) + "K"
+
 func _process(delta: float) ->  void:
 	cursor.position = get_global_mouse_position()
 	
@@ -225,17 +232,27 @@ func _process(delta: float) ->  void:
 							$Sidebar/Controller.text = "Allied"
 							$Sidebar/Controller.set("theme_override_colors/font_color", Color(0,1,0))
 							$Sidebar/Population.text = format_pop(stats[sel]["population"])
-							$Sidebar/Army.text = format_pop(stats[sel]["army"])
+							$Sidebar/Army.text = format_army(stats[sel]["army"])
+							$Sidebar/WoodValue.text = format_resource(stats[sel]["resources"]["wood"])
+							$Sidebar/StoneValue.text = format_resource(stats[sel]["resources"]["stone"])
+							$Sidebar/GrainValue.text = format_resource(stats[sel]["resources"]["grain"])
+							$Sidebar/CoalValue.text = format_resource(stats[sel]["resources"]["coal"])
+							$Sidebar/LivestockValue.text = format_resource(stats[sel]["resources"]["livestock"])
+							$Sidebar/IronValue.text = format_resource(stats[sel]["resources"]["iron"])
+							$Sidebar/GoldValue.text = format_resource(stats[sel]["resources"]["gold"])
+							$Sidebar/TechnologyValue.text = format_resource(stats[sel]["resources"]["technology"])
 						elif stats[sel]["relation"] == NEUTRAL:
 							$Sidebar/Controller.text = "Neutral"
 							$Sidebar/Controller.set("theme_override_colors/font_color", Color(0.77,0.77,0.77))
 							$Sidebar/Population.text = format_pop(stats[sel]["population"])
 							$Sidebar/Army.text = "Est. " + format_army(stats[sel]["army"] * stats[sel]["army_randomizer"])
+							get_tree().call_group("resource", "hide")
 						elif stats[sel]["relation"] == HOSTILE:
 							$Sidebar/Controller.text = "Hostile"
 							$Sidebar/Controller.set("theme_override_colors/font_color", Color(1,0,0))
 							$Sidebar/Population.text = "Est. " + format_pop(stats[sel]["population"] * stats[sel]["pop_randomizer"])
 							$Sidebar/Army.text = "Army Unknown"
+							get_tree().call_group("resource", "hide")
 		else:
 			get_tree().call_group("sidebar", "hide")
 			selection_marks[$Sidebar/Territory.text].hide()
@@ -274,3 +291,6 @@ func _process(delta: float) ->  void:
 	# Click (either) tree
 	# Show fullscreen tree view
 	# Zoom in/out / Pan
+
+func _on_confirm_pressed() -> void:
+	pass # Replace with function body.
