@@ -120,6 +120,9 @@ var stats: Dictionary
 var selection_marks: Dictionary
 var opposition_marks: Dictionary
 
+var selected: bool = false
+var secondary: String = "Scotland"
+
 var phase: int = -1
 
 func _ready() -> void:
@@ -128,6 +131,7 @@ func _ready() -> void:
 			"relation": NEUTRAL,
 			"population": randi_range(20000, 50000),
 			"pop_randomizer": randf_range(0.7, 1.3),
+			"army_randomizer": randf_range(0.7, 1.3),
 			"tree": [],
 			"resources": {
 				"wood": randi_range(25, 60),
@@ -140,7 +144,7 @@ func _ready() -> void:
 				"technology": randi_range(0,5),
 			},
 		}
-		stats[i]["military"] = stats[i]["population"] * randf_range(0.1, 0.15)
+		stats[i]["army"] = stats[i]["population"] * randf_range(0.1, 0.15)
 		
 		# Opponent Masks
 		var new_texture = load("res://assets/map/opponent/"+i+".png")
@@ -188,6 +192,16 @@ func format_pop(pop: int) -> String:
 	else:
 		return "Pop. " + str(pop/1_000_000_000) + "B"
 
+func format_army(army: int) -> String:
+	if army < 1_000:
+		return "Army " + str(army)
+	elif army < 1_000_000:
+		return "Army " + str(army/1000) + "K"
+	elif army < 1_000_000_000:
+		return "Army " + str(army/1_000_000) + "M"
+	else:
+		return "Army " + str(army/1_000_000_000) + "B"
+
 func _process(delta: float) ->  void:
 	cursor.position = get_global_mouse_position()
 	
@@ -195,27 +209,37 @@ func _process(delta: float) ->  void:
 		if "country" in str(cursor.get_overlapping_areas()):
 			for i in cursor.get_overlapping_areas():
 				if "country" in i.name:
-					get_tree().call_group("sidebar", "show")
-					var sel = i.name.split("_")[0]
-					selection_marks[$Sidebar/Territory.text].hide()
-					$Sidebar/Territory.text = sel
-					selection_marks[sel].show()
-					
-					if stats[sel]["relation"] == ALLIED:
-						$Sidebar/Controller.text = "Allied"
-						$Sidebar/Controller.set("theme_override_colors/font_color", Color(0,1,0))
-						$Sidebar/Population.text = format_pop(stats[sel]["population"])
-					elif stats[sel]["relation"] == NEUTRAL:
-						$Sidebar/Controller.text = "Neutral"
-						$Sidebar/Controller.set("theme_override_colors/font_color", Color(0.77,0.77,0.77))
-						$Sidebar/Population.text = format_pop(stats[sel]["population"])
-					elif stats[sel]["relation"] == HOSTILE:
-						$Sidebar/Controller.text = "Hostile"
-						$Sidebar/Controller.set("theme_override_colors/font_color", Color(1,0,0))
-						$Sidebar/Population.text = "Est. "+format_pop(stats[sel]["population"] * stats[sel]["pop_randomizer"])
+					if (phase == ATTACK or phase == TRANSFER) and selected:
+						selection_marks[secondary].hide()
+						var sel = i.name.split("_")[0]
+						selection_marks[sel].show()
+						secondary = sel
+					else:
+						selected = true
+						get_tree().call_group("sidebar", "show")
+						var sel = i.name.split("_")[0]
+						selection_marks[$Sidebar/Territory.text].hide()
+						$Sidebar/Territory.text = sel
+						selection_marks[sel].show()
+						if stats[sel]["relation"] == ALLIED:
+							$Sidebar/Controller.text = "Allied"
+							$Sidebar/Controller.set("theme_override_colors/font_color", Color(0,1,0))
+							$Sidebar/Population.text = format_pop(stats[sel]["population"])
+							$Sidebar/Army.text = format_pop(stats[sel]["army"])
+						elif stats[sel]["relation"] == NEUTRAL:
+							$Sidebar/Controller.text = "Neutral"
+							$Sidebar/Controller.set("theme_override_colors/font_color", Color(0.77,0.77,0.77))
+							$Sidebar/Population.text = format_pop(stats[sel]["population"])
+							$Sidebar/Army.text = "Est. " + format_army(stats[sel]["army"] * stats[sel]["army_randomizer"])
+						elif stats[sel]["relation"] == HOSTILE:
+							$Sidebar/Controller.text = "Hostile"
+							$Sidebar/Controller.set("theme_override_colors/font_color", Color(1,0,0))
+							$Sidebar/Population.text = "Est. " + format_pop(stats[sel]["population"] * stats[sel]["pop_randomizer"])
+							$Sidebar/Army.text = "Army Unknown"
 		else:
 			get_tree().call_group("sidebar", "hide")
 			selection_marks[$Sidebar/Territory.text].hide()
+			selected = false
 
 	## Game Loop 
 	if phase == ATTACK:
