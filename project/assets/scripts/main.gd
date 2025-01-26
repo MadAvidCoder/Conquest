@@ -4,7 +4,6 @@ enum {
 	ATTACK,
 	UPGRADE,
 	TRANSFER,
-	COMPUTE,
 }
 
 enum {
@@ -115,6 +114,8 @@ const NETWORK: Dictionary = {
 
 @onready var cursor = $Cursor
 
+var transferrable: bool = false
+
 var stats: Dictionary
 
 var selection_marks: Dictionary
@@ -123,7 +124,9 @@ var opposition_marks: Dictionary
 var selected: bool = false
 var secondary: String = "Scotland"
 
-var phase: int = -1
+var phase: int = ATTACK
+
+var path: PackedStringArray = ["Scotland"]
 
 func _ready() -> void:
 	get_tree().call_group("sidebar", "hide")
@@ -182,6 +185,22 @@ func _ready() -> void:
 			var new_collider = CollisionPolygon2D.new()
 			new_collider.polygon = j
 			new_area.add_child(new_collider)
+	
+	var starting_territories = randi_range(2,5)
+	var yours = []
+	yours.append(COUNTRIES.values().pick_random())
+	var iterator = 0
+	while starting_territories > 0:
+		for i in NETWORK[yours[iterator]]:
+			starting_territories -= 1
+			if starting_territories == 0:
+				break
+			yours.append(i)
+		iterator += 1
+	
+	for i in yours:
+		stats[i]["relation"] = ALLIED
+		opposition_marks[i].hide()
 
 func format_pop(pop: int) -> String:
 	if pop < 1_000:
@@ -197,7 +216,7 @@ func format_army(army: int) -> String:
 	if army < 1_000:
 		return "Army " + str(army)
 	elif army < 1_000_000:
-		return "Army " + str(army/1000) + "K"
+		return "Army " + str(army/1_000) + "K"
 	elif army < 1_000_000_000:
 		return "Army " + str(army/1_000_000) + "M"
 	else:
@@ -207,90 +226,197 @@ func format_resource(resource: int) -> String:
 	if resource < 1_000:
 		return str(resource)
 	else:
-		return str(resource/1000) + "K"
+		return str(resource/1_000) + "K"
 
 func _process(delta: float) ->  void:
 	cursor.position = get_global_mouse_position()
 	
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		if "country" in str(cursor.get_overlapping_areas()):
-			for i in cursor.get_overlapping_areas():
-				if "country" in i.name:
-					if (phase == ATTACK or phase == TRANSFER) and selected:
-						selection_marks[secondary].hide()
+		if cursor.position.x > 250:
+			if "country" in str(cursor.get_overlapping_areas()):
+				for i in cursor.get_overlapping_areas():
+					if "country" in i.name:
 						var sel = i.name.split("_")[0]
-						selection_marks[sel].show()
-						secondary = sel
-					else:
-						selected = true
-						get_tree().call_group("sidebar", "show")
-						var sel = i.name.split("_")[0]
-						selection_marks[$Sidebar/Territory.text].hide()
-						$Sidebar/Territory.text = sel
-						selection_marks[sel].show()
-						if stats[sel]["relation"] == ALLIED:
-							$Sidebar/Controller.text = "Allied"
-							$Sidebar/Controller.set("theme_override_colors/font_color", Color(0,1,0))
-							$Sidebar/Population.text = format_pop(stats[sel]["population"])
-							$Sidebar/Army.text = format_army(stats[sel]["army"])
-							$Sidebar/WoodValue.text = format_resource(stats[sel]["resources"]["wood"])
-							$Sidebar/StoneValue.text = format_resource(stats[sel]["resources"]["stone"])
-							$Sidebar/GrainValue.text = format_resource(stats[sel]["resources"]["grain"])
-							$Sidebar/CoalValue.text = format_resource(stats[sel]["resources"]["coal"])
-							$Sidebar/LivestockValue.text = format_resource(stats[sel]["resources"]["livestock"])
-							$Sidebar/IronValue.text = format_resource(stats[sel]["resources"]["iron"])
-							$Sidebar/GoldValue.text = format_resource(stats[sel]["resources"]["gold"])
-							$Sidebar/TechnologyValue.text = format_resource(stats[sel]["resources"]["technology"])
-						elif stats[sel]["relation"] == NEUTRAL:
-							$Sidebar/Controller.text = "Neutral"
-							$Sidebar/Controller.set("theme_override_colors/font_color", Color(0.77,0.77,0.77))
-							$Sidebar/Population.text = format_pop(stats[sel]["population"])
-							$Sidebar/Army.text = "Est. " + format_army(stats[sel]["army"] * stats[sel]["army_randomizer"])
+						if phase == ATTACK and selected and stats[$Sidebar/Territory.text]["relation"] == ALLIED and sel in NETWORK[$Sidebar/Territory.text] and stats[sel]["relation"] != ALLIED:
+							get_tree().call_group("secondary", "show")
+							$Sidebar/TerritoryTo.text = sel
+							$Sidebar/PopulationTo.text = format_pop(stats[sel]["population"])
+							$Sidebar/ArmyTo.text = "Est. " + format_army(stats[sel]["army"] * stats[sel]["army_randomizer"])
+							if stats[sel]["relation"] == NEUTRAL:
+								$Sidebar/ControllerTo.text = "Neutral"
+								$Sidebar/ControllerTo.set("theme_override_colors/font_color", Color(0.77,0.77,0.77))
+							elif stats[sel]["relation"] == HOSTILE:
+								$Sidebar/ControllerTo.text = "Hostile"
+								$Sidebar/ControllerTo.set("theme_override_colors/font_color", Color(1,0,0))
+							if secondary != "":
+								selection_marks[secondary].hide()
+							selection_marks[sel].show()
+							secondary = sel
+							$Sidebar/Confirm.text = "ATTACK\n"+sel
+							$Sidebar/Confirm.disabled = false
+						elif phase == TRANSFER and transferrable and selected and stats[$Sidebar/Territory.text]["relation"] != HOSTILE and (sel in NETWORK[$Sidebar/Territory.text] or sel in path) and sel != path[0]:
+							$Sidebar/Confirm.disabled = false
+							if sel in path:
+								for j in path.slice(path.find(sel), len(path)):
+									selection_marks[j].hide()
+								path = path.slice(0, path.find(sel))
+							path.append(sel)
+							selection_marks[sel].show()
+							$Sidebar/Territory.text = sel
+							get_tree().call_group("secondary", "show")
+							if stats[sel]["relation"] == ALLIED:
+								$Sidebar/ControllerTo.text = "Allied"
+								$Sidebar/ControllerTo.set("theme_override_colors/font_color", Color(0,1,0))
+								$Sidebar/PopulationTo.text = format_pop(stats[sel]["population"])
+								$Sidebar/ArmyTo.text = format_army(stats[sel]["army"])
+							elif stats[sel]["relation"] == NEUTRAL:
+								$Sidebar/ControllerTo.text = "Neutral"
+								$Sidebar/ControllerTo.set("theme_override_colors/font_color", Color(0.77,0.77,0.77))
+								$Sidebar/PopulationTo.text = format_pop(stats[sel]["population"])
+								$Sidebar/ArmyTo.text = "Est. " + format_army(stats[sel]["army"] * stats[sel]["army_randomizer"])
+								get_tree().call_group("resource", "hide")
+						else:
+							if phase == ATTACK:
+								$Sidebar/Confirm.disabled = true
+								$Sidebar/Confirm.text = "ATTACK\n..."
+							transferrable = false
+							selected = true
+							get_tree().call_group("sidebar", "show")
+							get_tree().call_group("secondary", "hide")
 							get_tree().call_group("resource", "hide")
-						elif stats[sel]["relation"] == HOSTILE:
-							$Sidebar/Controller.text = "Hostile"
-							$Sidebar/Controller.set("theme_override_colors/font_color", Color(1,0,0))
-							$Sidebar/Population.text = "Est. " + format_pop(stats[sel]["population"] * stats[sel]["pop_randomizer"])
-							$Sidebar/Army.text = "Army Unknown"
-							get_tree().call_group("resource", "hide")
-		else:
-			get_tree().call_group("sidebar", "hide")
-			selection_marks[$Sidebar/Territory.text].hide()
-			selected = false
-
-	## Game Loop 
-	if phase == ATTACK:
-		# On selected (from) territorys
-		# Show "ATTACKING FROM: [TERRITORY]" at the top
-		# On selected (to) territory
-		# Show attack button
-		# use a TBD algorithm to fight
-		pass
-	elif phase == UPGRADE:
-		# On Selected territory
-		# Show tree, and upgrade options
-		# On Click research icon
-		# Show research tree, and upgrade options
-		pass
-	elif phase == TRANSFER:
-		# On selected (from) territory
-		# Show "TRANSFERING FROM: [TERRITORY]" at the top
-		# On selected (to) territory
-		# Select what, and how much, to transfer
-		# On click transfer
-		# Lose some on the way, if through hostile territories
-		pass
-	elif phase == COMPUTE:
-		# TBD: Some territories retaliate/attack back (weighted towards player)
-		# Resource, population, army regeneration
-		pass
-	
-	## Other stuff
-	# Hover/click territories
-	# Show stats
-	# Click (either) tree
-	# Show fullscreen tree view
-	# Zoom in/out / Pan
+							selection_marks[$Sidebar/Territory.text].hide()
+							if secondary != "":
+								selection_marks[secondary].hide()
+							$Sidebar/Territory.text = sel
+							if phase == TRANSFER:
+								$Sidebar/Confirm.text = "TRANSFER FROM\n..."
+								$Sidebar/Confirm.disabled = true
+								for j in path:
+									selection_marks[j].hide()
+							selection_marks[sel].show()
+							if stats[sel]["relation"] == ALLIED:
+								$Sidebar/Controller.text = "Allied"
+								$Sidebar/Controller.set("theme_override_colors/font_color", Color(0,1,0))
+								$Sidebar/Population.text = format_pop(stats[sel]["population"])
+								$Sidebar/Army.text = format_army(stats[sel]["army"])
+								$Sidebar/WoodValue.text = format_resource(stats[sel]["resources"]["wood"])
+								$Sidebar/StoneValue.text = format_resource(stats[sel]["resources"]["stone"])
+								$Sidebar/GrainValue.text = format_resource(stats[sel]["resources"]["grain"])
+								$Sidebar/CoalValue.text = format_resource(stats[sel]["resources"]["coal"])
+								$Sidebar/LivestockValue.text = format_resource(stats[sel]["resources"]["livestock"])
+								$Sidebar/IronValue.text = format_resource(stats[sel]["resources"]["iron"])
+								$Sidebar/GoldValue.text = format_resource(stats[sel]["resources"]["gold"])
+								$Sidebar/TechnologyValue.text = format_resource(stats[sel]["resources"]["technology"])
+								if phase == UPGRADE:
+									$Sidebar/Confirm.disabled = false
+									get_tree().call_group("resource", "show")
+								elif phase == TRANSFER:
+									$Sidebar/Confirm.text = "TRANSFER FROM\n" + sel
+									transferrable = true
+									path = [sel]
+							elif stats[sel]["relation"] == NEUTRAL:
+								$Sidebar/Controller.text = "Neutral"
+								$Sidebar/Controller.set("theme_override_colors/font_color", Color(0.77,0.77,0.77))
+								$Sidebar/Population.text = format_pop(stats[sel]["population"])
+								$Sidebar/Army.text = "Est. " + format_army(stats[sel]["army"] * stats[sel]["army_randomizer"])
+								get_tree().call_group("resource", "hide")
+								if phase == UPGRADE:
+									$Sidebar/Confirm.disabled = true
+							elif stats[sel]["relation"] == HOSTILE:
+								$Sidebar/Controller.text = "Hostile"
+								$Sidebar/Controller.set("theme_override_colors/font_color", Color(1,0,0))
+								$Sidebar/Population.text = "Est. " + format_pop(stats[sel]["population"] * stats[sel]["pop_randomizer"])
+								$Sidebar/Army.text = "Army Unknown"
+								get_tree().call_group("resource", "hide")
+								if phase == UPGRADE:
+									$Sidebar/Confirm.disabled = true
+			else:
+				transferrable = false
+				get_tree().call_group("sidebar", "hide")
+				selection_marks[$Sidebar/Territory.text].hide()
+				if secondary != "":
+					selection_marks[secondary].hide()
+				$Sidebar/Confirm.disabled = true
+				if phase == ATTACK:
+					$Sidebar/Confirm.text = "ATTACK\n..."
+				elif phase == TRANSFER:
+					$Sidebar/Confirm.text = "TRANSFER TO\n..."
+				selected = false
+				for i in path:
+					selection_marks[i].hide()
 
 func _on_confirm_pressed() -> void:
-	pass # Replace with function body.
+	if phase == ATTACK:
+		var lost: float = 0
+		while stats[$Sidebar/Territory.text]["army"] > 501 and stats[secondary]["army"] > 0:
+			var losing: float = randfn(0.8, 0.166)
+			stats[$Sidebar/Territory.text]["army"] -= losing
+			lost += losing
+			stats[secondary]["army"] -= 1
+		if stats[secondary]["army"] > 0:
+			stats[secondary]["relation"] = HOSTILE
+			var sel = $Sidebar/Territory.text
+			$Sidebar/Controller.text = "Allied"
+			$Sidebar/Controller.set("theme_override_colors/font_color", Color(0,1,0))
+			$Sidebar/Population.text = format_pop(stats[sel]["population"])
+			$Sidebar/Army.text = format_army(stats[sel]["army"])
+			get_tree().call_group("secondary", "hide")
+			selection_marks[secondary].hide()
+		else:
+			stats[secondary]["relation"] = ALLIED
+			opposition_marks[secondary].hide()
+			stats[secondary]["army"] = lost / 2
+			selected = true
+			var sel = secondary
+			secondary = ""
+			get_tree().call_group("secondary", "hide")
+			selection_marks[$Sidebar/Territory.text].hide()
+			$Sidebar/Territory.text = sel
+			selection_marks[sel].show()
+			$Sidebar/Controller.text = "Allied"
+			$Sidebar/Controller.set("theme_override_colors/font_color", Color(0,1,0))
+			$Sidebar/Population.text = format_pop(stats[sel]["population"])
+			$Sidebar/Army.text = format_army(stats[sel]["army"])
+			$Sidebar/WoodValue.text = format_resource(stats[sel]["resources"]["wood"])
+			$Sidebar/StoneValue.text = format_resource(stats[sel]["resources"]["stone"])
+			$Sidebar/GrainValue.text = format_resource(stats[sel]["resources"]["grain"])
+			$Sidebar/CoalValue.text = format_resource(stats[sel]["resources"]["coal"])
+			$Sidebar/LivestockValue.text = format_resource(stats[sel]["resources"]["livestock"])
+			$Sidebar/IronValue.text = format_resource(stats[sel]["resources"]["iron"])
+			$Sidebar/GoldValue.text = format_resource(stats[sel]["resources"]["gold"])
+			$Sidebar/TechnologyValue.text = format_resource(stats[sel]["resources"]["technology"])
+	elif phase == UPGRADE:
+		print("upgrading " + $Sidebar/Territory.text)
+	elif phase == TRANSFER:
+		print($Sidebar/Territory.text + " transferring to " + secondary)
+
+func _on_continue_pressed() -> void:
+	if phase == ATTACK:
+		phase = UPGRADE
+		get_tree().call_group("sidebar", "hide")
+		selection_marks[$Sidebar/Territory.text].hide()
+		if secondary != "":
+			selection_marks[secondary].hide()
+		$Sidebar/Confirm.disabled = true
+		$Sidebar/Confirm.text = "UPGRADE"
+		$Sidebar/Confirm.disabled = true
+		selected = false
+	elif phase == UPGRADE:
+		phase = TRANSFER
+		get_tree().call_group("sidebar", "hide")
+		selection_marks[$Sidebar/Territory.text].hide()
+		if secondary != "":
+			selection_marks[secondary].hide()
+		$Sidebar/Confirm.disabled = true
+		$Sidebar/Confirm.text = "TRANSFER TO\n..."
+		$Sidebar/Confirm.disabled = true
+		selected = false
+	elif phase == TRANSFER:
+		get_tree().call_group("sidebar", "hide")
+		selection_marks[$Sidebar/Territory.text].hide()
+		if secondary != "":
+			selection_marks[secondary].hide()
+		$Sidebar/Confirm.disabled = true
+		$Sidebar/Confirm.text = "COMPUTING..."
+		$Sidebar/Confirm.disabled = true
+		selected = false

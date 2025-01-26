@@ -44,70 +44,15 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 250.0
 offset_bottom = 648.0
-mouse_filter = 2
 
 [node name="Fill" type="ColorRect" parent="Sidebar"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 2
-auto_translate_mode = 0
-editor_description = ""
-visible = true
-modulate = Color(1, 1, 1, 1)
-self_modulate = Color(1, 1, 1, 1)
-show_behind_parent = false
-top_level = false
-clip_children = 0
-light_mask = 1
-visibility_layer = 1
-z_index = 0
-z_as_relative = true
-y_sort_enabled = false
-texture_filter = 0
-texture_repeat = 0
-material = null
-use_parent_material = false
-clip_contents = false
-custom_minimum_size = Vector2(0, 0)
-layout_direction = 0
 layout_mode = 1
 anchors_preset = 15
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 0.0
-scale = Vector2(1, 1)
-pivot_offset = Vector2(0, 0)
-size_flags_horizontal = 1
-size_flags_vertical = 1
-size_flags_stretch_ratio = 1.0
-localize_numeral_system = true
-tooltip_text = ""
-focus_neighbor_left = NodePath("")
-focus_neighbor_top = NodePath("")
-focus_neighbor_right = NodePath("")
-focus_neighbor_bottom = NodePath("")
-focus_next = NodePath("")
-focus_previous = NodePath("")
-focus_mode = 0
-mouse_filter = 2
-mouse_force_pass_scroll_events = true
-mouse_default_cursor_shape = 0
-theme = null
-theme_type_variation = &""
 color = Color(0, 0, 0, 0.588235)
-script = null
 
 [node name="Title" type="Label" parent="Sidebar"]
 z_index = 1
@@ -189,12 +134,79 @@ theme_override_font_sizes/font_size = 29
 text = "Army Unknown"
 horizontal_alignment = 1
 
+[node name="TerritoryTo" type="Label" parent="Sidebar" groups=["secondary", "sidebar"]]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -99.5
+offset_top = 281.0
+offset_right = 99.5
+offset_bottom = 330.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 40
+text = "Scotland"
+horizontal_alignment = 1
+
+[node name="ControllerTo" type="Label" parent="Sidebar" groups=["secondary", "sidebar"]]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -78.0
+offset_top = 329.0
+offset_right = 78.0
+offset_bottom = 360.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.768627, 0.768627, 0.768627, 1)
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 25
+text = "NEUTRAL"
+horizontal_alignment = 1
+
+[node name="PopulationTo" type="Label" parent="Sidebar" groups=["secondary", "sidebar"]]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -72.0
+offset_top = 381.0
+offset_right = 72.0
+offset_bottom = 417.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 29
+text = "Pop. Unknown"
+horizontal_alignment = 1
+
+[node name="ArmyTo" type="Label" parent="Sidebar" groups=["secondary", "sidebar"]]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -76.5
+offset_top = 431.0
+offset_right = 76.5
+offset_bottom = 467.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 29
+text = "Army Unknown"
+horizontal_alignment = 1
+
 [node name="WoodIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
+visible = false
 position = Vector2(58, 301)
 scale = Vector2(0.075, 0.075)
 texture = ExtResource("7_3xs03")
 
 [node name="WoodValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -210,11 +222,13 @@ theme_override_font_sizes/font_size = 25
 text = "100"
 
 [node name="StoneIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
+visible = false
 position = Vector2(155, 301)
 scale = Vector2(0.075, 0.075)
 texture = ExtResource("8_lnjj5")
 
 [node name="StoneValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -230,11 +244,13 @@ theme_override_font_sizes/font_size = 25
 text = "100"
 
 [node name="GrainIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
+visible = false
 position = Vector2(58, 357)
 scale = Vector2(0.075, 0.075)
 texture = ExtResource("9_b83j0")
 
 [node name="GrainValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -250,11 +266,13 @@ theme_override_font_sizes/font_size = 25
 text = "100"
 
 [node name="CoalIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
+visible = false
 position = Vector2(155, 357)
 scale = Vector2(0.075, 0.075)
 texture = ExtResource("10_1r7mj")
 
 [node name="CoalValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -270,11 +288,13 @@ theme_override_font_sizes/font_size = 25
 text = "100"
 
 [node name="LivestockIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
+visible = false
 position = Vector2(58, 413)
 scale = Vector2(0.075, 0.075)
 texture = ExtResource("11_lqkxf")
 
 [node name="LivestockValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -290,11 +310,13 @@ theme_override_font_sizes/font_size = 25
 text = "100"
 
 [node name="IronIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
+visible = false
 position = Vector2(155, 413)
 scale = Vector2(0.075, 0.075)
 texture = ExtResource("12_xebub")
 
 [node name="IronValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -310,11 +332,13 @@ theme_override_font_sizes/font_size = 25
 text = "100"
 
 [node name="GoldIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
+visible = false
 position = Vector2(58, 469)
 scale = Vector2(0.075, 0.075)
 texture = ExtResource("13_186pv")
 
 [node name="GoldValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -330,11 +354,13 @@ theme_override_font_sizes/font_size = 25
 text = "100"
 
 [node name="TechnologyIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
+visible = false
 position = Vector2(155, 469)
 scale = Vector2(0.075, 0.075)
 texture = ExtResource("14_qbruy")
 
 [node name="TechnologyValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -349,22 +375,36 @@ theme_override_fonts/font = ExtResource("6_0so7v")
 theme_override_font_sizes/font_size = 25
 text = "100"
 
-[node name="Confirm" type="Button" parent="Sidebar" groups=["sidebar"]]
+[node name="Confirm" type="Button" parent="Sidebar"]
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -84.5
-offset_top = 558.0
+offset_top = 508.0
 offset_right = 84.5
-offset_bottom = 636.0
+offset_bottom = 586.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("5_sn7en")
 theme_override_font_sizes/font_size = 29
 disabled = true
-text = "TRANSFER TO
-..."
+text = "COMPUTING..."
+
+[node name="Continue" type="Button" parent="Sidebar"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -88.0
+offset_top = 597.0
+offset_right = 88.0
+offset_bottom = 640.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_sn7en")
+theme_override_font_sizes/font_size = 29
+text = "Continue"
 
 [node name="Cursor" type="Area2D" parent="."]
 
@@ -372,3 +412,4 @@ text = "TRANSFER TO
 shape = SubResource("RectangleShape2D_u24va")
 
 [connection signal="pressed" from="Sidebar/Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="Sidebar/Continue" to="." method="_on_continue_pressed"]
