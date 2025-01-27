@@ -232,7 +232,7 @@ func _process(delta: float) ->  void:
 	cursor.position = get_global_mouse_position()
 	
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		if cursor.position.x > 250:
+		if cursor.position.x > 250 and not $TransferSelect.visible:
 			if "country" in str(cursor.get_overlapping_areas()):
 				for i in cursor.get_overlapping_areas():
 					if "country" in i.name:
@@ -254,15 +254,18 @@ func _process(delta: float) ->  void:
 							secondary = sel
 							$Sidebar/Confirm.text = "ATTACK\n"+sel
 							$Sidebar/Confirm.disabled = false
-						elif phase == TRANSFER and transferrable and selected and stats[$Sidebar/Territory.text]["relation"] != HOSTILE and (sel in NETWORK[$Sidebar/Territory.text] or sel in path) and sel != path[0]:
-							$Sidebar/Confirm.disabled = false
+						elif phase == TRANSFER and transferrable and selected and stats[$Sidebar/Territory.text]["relation"] != HOSTILE and (sel in NETWORK[$Sidebar/TerritoryTo.text] or sel in path) and sel != path[0]:
+							if stats[sel]["relation"] == ALLIED:
+								$Sidebar/Confirm.disabled = false
+							else:
+								$Sidebar/Confirm.disabled = true
 							if sel in path:
 								for j in path.slice(path.find(sel), len(path)):
 									selection_marks[j].hide()
 								path = path.slice(0, path.find(sel))
 							path.append(sel)
 							selection_marks[sel].show()
-							$Sidebar/Territory.text = sel
+							$Sidebar/TerritoryTo.text = sel
 							get_tree().call_group("secondary", "show")
 							if stats[sel]["relation"] == ALLIED:
 								$Sidebar/ControllerTo.text = "Allied"
@@ -287,6 +290,7 @@ func _process(delta: float) ->  void:
 							selection_marks[$Sidebar/Territory.text].hide()
 							if secondary != "":
 								selection_marks[secondary].hide()
+							$Sidebar/TerritoryTo.text = sel
 							$Sidebar/Territory.text = sel
 							if phase == TRANSFER:
 								$Sidebar/Confirm.text = "TRANSFER FROM\n..."
@@ -388,7 +392,9 @@ func _on_confirm_pressed() -> void:
 	elif phase == UPGRADE:
 		print("upgrading " + $Sidebar/Territory.text)
 	elif phase == TRANSFER:
-		print($Sidebar/Territory.text + " transferring to " + secondary)
+		$TransferSelect.show()
+		$TransferSelect/Soldiers.max_value = stats[path[0]]["army"] - 100
+		$TransferSelect/CountryLabel.text = "from " + path[0] + "\nto " + path[-1]
 
 func _on_continue_pressed() -> void:
 	if phase == ATTACK:
@@ -420,3 +426,14 @@ func _on_continue_pressed() -> void:
 		$Sidebar/Confirm.text = "COMPUTING..."
 		$Sidebar/Confirm.disabled = true
 		selected = false
+
+func _on_transfer_confirm_pressed() -> void:
+	var troops = clamp($TransferSelect/Soldiers.value, $TransferSelect/Soldiers.min_value, $TransferSelect/Soldiers.max_value)
+	stats[$Sidebar/Territory.text]["army"] -= troops
+	for i in path:
+		if stats[i]["relation"] == NEUTRAL:
+			troops = clamp(troops * randf_range(0.95, 1), 100, INF)
+	stats[$Sidebar/TerritoryTo.text]["army"] += troops
+	$Sidebar/Army.text = format_army(stats[$Sidebar/Territory.text]["army"])
+	$Sidebar/ArmyTo.text = format_army(stats[$Sidebar/TerritoryTo.text]["army"])
+	$TransferSelect.hide()
