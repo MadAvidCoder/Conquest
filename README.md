@@ -1,4 +1,23 @@
 # Conquest
+![Wakatime](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fwaka.hackclub.com%2Fapi%2Fcompat%2Fshields%2Fv1%2FU081TBVQLCX%2Fall_time%2Fproject%253AConquest&query=message&label=Wakatime)
+![License](https://img.shields.io/github/license/madavidcoder/conquest)
+![Created At](https://img.shields.io/github/created-at/madavidcoder/conquest)
+![Top Language](https://img.shields.io/github/languages/top/madavidcoder/conquest)
+![Commits](https://img.shields.io/github/commit-activity/t/madavidcoder/conquest)
+![Last Commit](https://img.shields.io/github/last-commit/madavidcoder/conquest)
+![Open Issues](https://img.shields.io/github/issues/madavidcoder/conquest)
+![Build Status](https://img.shields.io/github/actions/workflow/status/madavidcoder/conquest/deploy.yml)
+![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fmadavidcoder.github.io%2FConquest)
+
+
+<img src="https://cloud-o8bkmj3fk-hack-club-bot.vercel.app/4screenshot_2025-01-29_091311.png" alt="Attack Phase" width="300"/>
+<img src="https://cloud-o8bkmj3fk-hack-club-bot.vercel.app/2screenshot_2025-01-29_090913.png" alt="Transfer Troops Dialogue" width="300"/>
+<br>
+<br>
+<img src="https://cloud-o8bkmj3fk-hack-club-bot.vercel.app/1screenshot_2025-01-29_090623.png" alt="Territory Upgrade Tree" width="300"/>
+<img src="https://cloud-o8bkmj3fk-hack-club-bot.vercel.app/3screenshot_2025-01-29_091037.png" alt="Global Upgrade Tree" width="300"/>
+
+
 ### Play it [here](https://madavidcoder.github.io/Conquest)!
 Conquer medieval Europe in this unique turn-based grand strategy game of empires and conflicts.
 
