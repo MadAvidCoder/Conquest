@@ -9,7 +9,6 @@
 ![Build Status](https://img.shields.io/github/actions/workflow/status/madavidcoder/conquest/deploy.yml)
 ![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fmadavidcoder.github.io%2FConquest)
 
-
 <div>
 <img src="https://cloud-o8bkmj3fk-hack-club-bot.vercel.app/4screenshot_2025-01-29_091311.png" alt="Attack Phase" width="300"/>
 <img src="https://cloud-o8bkmj3fk-hack-club-bot.vercel.app/2screenshot_2025-01-29_090913.png" alt="Transfer Troops Dialogue" width="300"/>
