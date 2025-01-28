@@ -614,31 +614,32 @@ func _process(delta: float) ->  void:
 							$Sidebar/Confirm.text = "ATTACK\n"+sel
 							$Sidebar/Confirm.disabled = false
 						elif phase == TRANSFER and transferrable and selected and stats[$Sidebar/Territory.text]["relation"] != HOSTILE and (sel in NETWORK[$Sidebar/TerritoryTo.text] or sel in path) and sel != path[0]:
-							if stats[sel]["relation"] == ALLIED:
-								$Sidebar/Confirm.disabled = false
-							else:
-								$Sidebar/Confirm.disabled = true
-							if sel in path:
-								for j in path.slice(path.find(sel), len(path)):
-									selection_marks[j].hide()
-								path = path.slice(0, path.find(sel))
-							path.append(sel)
-							selection_marks[sel].show()
-							$Sidebar/TerritoryTo.text = sel
-							get_tree().call_group("secondary", "show")
-							if stats[sel]["relation"] == ALLIED:
-								$Sidebar/ControllerTo.text = "Allied"
-								$Sidebar/ControllerTo.set("theme_override_colors/font_color", Color(0,1,0))
-								$Sidebar/PopulationTo.text = format_pop(stats[sel]["population"])
-								$Sidebar/ArmyTo.text = format_army(stats[sel]["army"])
-							elif stats[sel]["relation"] == NEUTRAL:
-								$Sidebar/ControllerTo.text = "Neutral"
-								$Sidebar/ControllerTo.set("theme_override_colors/font_color", Color(0.77,0.77,0.77))
-								if stats[sel]["spied_on"]:
-									$Sidebar/ArmyTo.text = format_army(stats[sel]["army"])
+							if stats[sel]["relation"] != HOSTILE:
+								if stats[sel]["relation"] == ALLIED:
+									$Sidebar/Confirm.disabled = false
 								else:
-									$Sidebar/ArmyTo.text = "Est. " + format_army(stats[sel]["army"] * stats[sel]["army_randomizer"])
-								$Sidebar/PopulationTo.text = format_pop(stats[sel]["population"])
+									$Sidebar/Confirm.disabled = true
+								if sel in path:
+									for j in path.slice(path.find(sel), len(path)):
+										selection_marks[j].hide()
+									path = path.slice(0, path.find(sel))
+								path.append(sel)
+								selection_marks[sel].show()
+								$Sidebar/TerritoryTo.text = sel
+								get_tree().call_group("secondary", "show")
+								if stats[sel]["relation"] == ALLIED:
+									$Sidebar/ControllerTo.text = "Allied"
+									$Sidebar/ControllerTo.set("theme_override_colors/font_color", Color(0,1,0))
+									$Sidebar/PopulationTo.text = format_pop(stats[sel]["population"])
+									$Sidebar/ArmyTo.text = format_army(stats[sel]["army"])
+								elif stats[sel]["relation"] == NEUTRAL:
+									$Sidebar/ControllerTo.text = "Neutral"
+									$Sidebar/ControllerTo.set("theme_override_colors/font_color", Color(0.77,0.77,0.77))
+									if stats[sel]["spied_on"]:
+										$Sidebar/ArmyTo.text = format_army(stats[sel]["army"])
+									else:
+										$Sidebar/ArmyTo.text = "Est. " + format_army(stats[sel]["army"] * stats[sel]["army_randomizer"])
+									$Sidebar/PopulationTo.text = format_pop(stats[sel]["population"])
 						else:
 							if phase == ATTACK:
 								$Sidebar/Confirm.disabled = true
