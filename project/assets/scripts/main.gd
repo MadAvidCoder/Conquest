@@ -16,56 +16,6 @@ signal upgrade(what: String)
 
 signal global_upgrade(what: String)
 
-const COUNTRIES: Dictionary = {
-	0: "Scotland",
-	1: "Norway",
-	2: "Sweden",
-	3: "Novgorod",
-	4: "Rostov",
-	5: "Ireland",
-	6: "London",
-	7: "Ribe",
-	8: "Balts",
-	9: "Kiev",
-	10: "Cumans",
-	11: "Wales",
-	12: "Frisia",
-	13: "Lusatia",
-	14: "Pomerania",
-	15: "Cracow",
-	16: "Lorraine",
-	17: "Aachen",
-	18: "Thuringia",
-	19: "Bohemia",
-	20: "Pechenegs",
-	21: "Brittany",
-	22: "Paris",
-	23: "Alemannia",
-	24: "Bavaria",
-	25: "Budapest",
-	26: "Crimea",
-	27: "Bordeaux",
-	28: "Burgundy",
-	29: "Pavia",
-	30: "Venetia",
-	31: "Serbia",
-	32: "Bulgaria",
-	33: "Leon",
-	34: "Navarra",
-	35: "Rome",
-	36: "Lusitania",
-	37: "Toledo",
-	38: "Aragona",
-	39: "Sardinia",
-	40: "Naples",
-	41: "Athens",
-	42: "Constantinople",
-	43: "Anatolia",
-	44: "Al-Andalus",
-	45: "Granada",
-	46: "Palermo",
-}
-
 const NETWORK: Dictionary = {
 	"Scotland": ["Norway", "Ireland", "London"],
 	"Norway": ["Scotland", "Ribe", "Sweden"],
@@ -526,7 +476,7 @@ func _ready() -> void:
 		},
 	}
 	get_tree().call_group("sidebar", "hide")
-	for i in COUNTRIES.values():
+	for i in NETWORK.keys():
 		stats[i] = {
 			"relation": NEUTRAL,
 			"spied_on": false,
@@ -583,7 +533,7 @@ func _ready() -> void:
 	
 	var starting_territories = randi_range(2,5)
 	var yours = []
-	yours.append(COUNTRIES.values().pick_random())
+	yours.append(NETWORK.keys().pick_random())
 	var iterator = 0
 	while starting_territories > 0:
 		for i in NETWORK[yours[iterator]]:
@@ -946,7 +896,7 @@ func _on_continue_pressed() -> void:
 							finished = true
 							opposition_marks[chosen].self_modulate = Color(1, 0.28, 0.28, 0.79)
 							stats[chosen]["relation"] = HOSTILE
-			for i in COUNTRIES.values():
+			for i in NETWORK.keys():
 				var increasing_by: float
 				var multiplier: float = 1
 				if "Medicine" in your_global_tree:
@@ -998,7 +948,7 @@ func _on_continue_pressed() -> void:
 					stats[i]["resources"]["iron"] += randi_range(5, 8)
 			
 			gold += gold_pans * randf_range(10, 20)
-			for i in COUNTRIES.values():
+			for i in NETWORK.keys():
 				if stats[i]["relation"] == ALLIED:
 						research += 1
 						if "Taxation" in your_global_tree:
@@ -1016,7 +966,7 @@ func _on_continue_pressed() -> void:
 				selection_marks[i].hide()
 		var won: bool = true
 		var lost: bool = true
-		for i in COUNTRIES.values():
+		for i in NETWORK.keys():
 			if stats[i]["relation"] != ALLIED:
 				won = false
 			else:
