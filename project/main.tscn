@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dnrwjhrn2he4a"]
+[gd_scene load_steps=16 format=3 uid="uid://dnrwjhrn2he4a"]
 
 [ext_resource type="Script" path="res://assets/scripts/main.gd" id="1_7whgk"]
 [ext_resource type="Texture2D" uid="uid://caqnsg7k3wsli" path="res://assets/map/background.png" id="2_u88cg"]
@@ -9,11 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://2vvwvmkhmj2h" path="res://assets/resource_icons/wood.png" id="7_3xs03"]
 [ext_resource type="Texture2D" uid="uid://doqwr3h6vmdna" path="res://assets/resource_icons/stone.png" id="8_lnjj5"]
 [ext_resource type="Texture2D" uid="uid://bqhsxxl7uouvh" path="res://assets/resource_icons/grain.png" id="9_b83j0"]
-[ext_resource type="Texture2D" uid="uid://5q0e24qhaicf" path="res://assets/resource_icons/coal.png" id="10_1r7mj"]
-[ext_resource type="Texture2D" uid="uid://djbdghjf55fqu" path="res://assets/resource_icons/livestock.png" id="11_lqkxf"]
+[ext_resource type="Texture2D" uid="uid://brw6yqri4377m" path="res://assets/resource_icons/gold.png" id="11_x3fqy"]
+[ext_resource type="Texture2D" uid="uid://kt7hx78o7oyh" path="res://assets/resource_icons/research.png" id="12_gvddb"]
 [ext_resource type="Texture2D" uid="uid://h4tj8b23qh25" path="res://assets/resource_icons/iron.png" id="12_xebub"]
-[ext_resource type="Texture2D" uid="uid://brw6yqri4377m" path="res://assets/resource_icons/gold.png" id="13_186pv"]
-[ext_resource type="Texture2D" uid="uid://kt7hx78o7oyh" path="res://assets/resource_icons/technology.png" id="14_qbruy"]
+[ext_resource type="Texture2D" uid="uid://drqccj4rbvu3l" path="res://assets/research_tree.png" id="13_tkfme"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u24va"]
 size = Vector2(1, 1)
@@ -138,6 +137,7 @@ text = "Army Unknown"
 horizontal_alignment = 1
 
 [node name="TerritoryTo" type="Label" parent="Sidebar" groups=["secondary", "sidebar"]]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -154,6 +154,7 @@ text = "Scotland"
 horizontal_alignment = 1
 
 [node name="ControllerTo" type="Label" parent="Sidebar" groups=["secondary", "sidebar"]]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -171,6 +172,7 @@ text = "NEUTRAL"
 horizontal_alignment = 1
 
 [node name="PopulationTo" type="Label" parent="Sidebar" groups=["secondary", "sidebar"]]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -187,6 +189,7 @@ text = "Pop. Unknown"
 horizontal_alignment = 1
 
 [node name="ArmyTo" type="Label" parent="Sidebar" groups=["secondary", "sidebar"]]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -203,176 +206,80 @@ text = "Army Unknown"
 horizontal_alignment = 1
 
 [node name="WoodIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
-visible = false
-position = Vector2(58, 301)
+position = Vector2(58, 309)
 scale = Vector2(0.075, 0.075)
 texture = ExtResource("7_3xs03")
 
 [node name="WoodValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
-visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -41.0
-offset_top = 289.0
+offset_top = 297.0
 offset_right = 38.0
-offset_bottom = 325.0
+offset_bottom = 333.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("6_0so7v")
 theme_override_font_sizes/font_size = 25
 text = "100"
 
 [node name="StoneIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
-visible = false
-position = Vector2(155, 301)
+position = Vector2(155, 309)
 scale = Vector2(0.075, 0.075)
 texture = ExtResource("8_lnjj5")
 
 [node name="StoneValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
-visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = 56.0
-offset_top = 289.0
+offset_top = 297.0
 offset_right = 135.0
-offset_bottom = 325.0
+offset_bottom = 333.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("6_0so7v")
 theme_override_font_sizes/font_size = 25
 text = "100"
 
 [node name="GrainIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
-visible = false
-position = Vector2(58, 357)
+position = Vector2(58, 365)
 scale = Vector2(0.075, 0.075)
 texture = ExtResource("9_b83j0")
 
 [node name="GrainValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
-visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -41.0
-offset_top = 345.0
+offset_top = 353.0
 offset_right = 38.0
-offset_bottom = 381.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("6_0so7v")
-theme_override_font_sizes/font_size = 25
-text = "100"
-
-[node name="CoalIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
-visible = false
-position = Vector2(155, 357)
-scale = Vector2(0.075, 0.075)
-texture = ExtResource("10_1r7mj")
-
-[node name="CoalValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
-visible = false
-z_index = 1
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 56.0
-offset_top = 345.0
-offset_right = 135.0
-offset_bottom = 381.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("6_0so7v")
-theme_override_font_sizes/font_size = 25
-text = "100"
-
-[node name="LivestockIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
-visible = false
-position = Vector2(58, 413)
-scale = Vector2(0.075, 0.075)
-texture = ExtResource("11_lqkxf")
-
-[node name="LivestockValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
-visible = false
-z_index = 1
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -41.0
-offset_top = 401.0
-offset_right = 38.0
-offset_bottom = 437.0
+offset_bottom = 389.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("6_0so7v")
 theme_override_font_sizes/font_size = 25
 text = "100"
 
 [node name="IronIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
-visible = false
-position = Vector2(155, 413)
+position = Vector2(155, 365)
 scale = Vector2(0.075, 0.075)
 texture = ExtResource("12_xebub")
 
 [node name="IronValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
-visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = 56.0
-offset_top = 401.0
+offset_top = 353.0
 offset_right = 135.0
-offset_bottom = 437.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("6_0so7v")
-theme_override_font_sizes/font_size = 25
-text = "100"
-
-[node name="GoldIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
-visible = false
-position = Vector2(58, 469)
-scale = Vector2(0.075, 0.075)
-texture = ExtResource("13_186pv")
-
-[node name="GoldValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
-visible = false
-z_index = 1
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -41.0
-offset_top = 457.0
-offset_right = 38.0
-offset_bottom = 493.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("6_0so7v")
-theme_override_font_sizes/font_size = 25
-text = "100"
-
-[node name="TechnologyIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
-visible = false
-position = Vector2(155, 469)
-scale = Vector2(0.075, 0.075)
-texture = ExtResource("14_qbruy")
-
-[node name="TechnologyValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
-visible = false
-z_index = 1
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 56.0
-offset_top = 457.0
-offset_right = 135.0
-offset_bottom = 493.0
+offset_bottom = 389.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("6_0so7v")
 theme_override_font_sizes/font_size = 25
@@ -392,7 +299,8 @@ grow_horizontal = 2
 theme_override_fonts/font = ExtResource("5_sn7en")
 theme_override_font_sizes/font_size = 29
 disabled = true
-text = "COMPUTING..."
+text = "ATTACK
+..."
 
 [node name="Continue" type="Button" parent="Sidebar"]
 z_index = 1
@@ -407,7 +315,7 @@ offset_bottom = 640.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("5_sn7en")
 theme_override_font_sizes/font_size = 29
-text = "Continue"
+text = "Next Phase"
 
 [node name="Cursor" type="Area2D" parent="."]
 
@@ -523,6 +431,1351 @@ theme_override_fonts/font = ExtResource("5_sn7en")
 theme_override_font_sizes/font_size = 24
 text = "CONFIRM"
 
+[node name="TerritoryTree" type="Control" parent="."]
+visible = false
+z_index = 5
+layout_mode = 3
+anchors_preset = 0
+offset_left = 250.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Fill" type="ColorRect" parent="TerritoryTree"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.843137)
+
+[node name="Base" type="Button" parent="TerritoryTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 6.0
+offset_top = -24.5
+offset_right = 100.0
+offset_bottom = 20.5
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 30
+disabled = true
+text = "Scotland"
+
+[node name="BarracksI" type="Button" parent="TerritoryTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 184.0
+offset_top = -130.0
+offset_right = 282.0
+offset_bottom = -93.0
+grow_vertical = 2
+tooltip_text = "Raise army enlistment rate."
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Barracks I"
+
+[node name="BarracksII" type="Button" parent="TerritoryTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 184.0
+offset_top = -173.0
+offset_right = 282.0
+offset_bottom = -136.0
+grow_vertical = 2
+tooltip_text = "Raise army enlistment rate."
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Barracks II"
+
+[node name="BarracksIII" type="Button" parent="TerritoryTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 184.0
+offset_top = -219.0
+offset_right = 282.0
+offset_bottom = -182.0
+grow_vertical = 2
+tooltip_text = "Raise army enlistment rate."
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Barracks III"
+
+[node name="PlunderI" type="Button" parent="TerritoryTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 384.0
+offset_top = -212.0
+offset_right = 470.0
+offset_bottom = -175.0
+grow_vertical = 2
+tooltip_text = "Plunder resources from defeated territories."
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Plunder I"
+
+[node name="PlunderII" type="Button" parent="TerritoryTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 384.0
+offset_top = -250.0
+offset_right = 470.0
+offset_bottom = -213.0
+grow_vertical = 2
+tooltip_text = "Plunder resources from defeated territories."
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Plunder II
+"
+
+[node name="Espionage" type="Button" parent="TerritoryTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 386.0
+offset_top = -106.0
+offset_right = 469.0
+offset_bottom = -69.0
+grow_vertical = 2
+tooltip_text = "Enables spying on neighbouring territories. (Locked)"
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Espionage"
+
+[node name="SiegeEnginesI" type="Button" parent="TerritoryTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 556.0
+offset_top = -213.0
+offset_right = 691.0
+offset_bottom = -176.0
+grow_vertical = 2
+tooltip_text = "Launch more effective attacks. (Locked)"
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Siege Engines I"
+
+[node name="SiegeEnginesII" type="Button" parent="TerritoryTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 556.0
+offset_top = -253.0
+offset_right = 691.0
+offset_bottom = -216.0
+grow_vertical = 2
+tooltip_text = "Launch more effective attacks. (Locked)"
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Siege Engines II"
+
+[node name="FortificationsI" type="Button" parent="TerritoryTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 564.0
+offset_top = -104.0
+offset_right = 691.0
+offset_bottom = -67.0
+grow_vertical = 2
+tooltip_text = "Take fewer losses when attacked. (Locked)"
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Fortifications I"
+
+[node name="FortificationsII" type="Button" parent="TerritoryTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 564.0
+offset_top = -64.0
+offset_right = 691.0
+offset_bottom = -27.0
+grow_vertical = 2
+tooltip_text = "Take fewer losses when attacked. (Locked)"
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Fortifications II"
+
+[node name="Conscription" type="Button" parent="TerritoryTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 751.0
+offset_top = -163.0
+offset_right = 872.0
+offset_bottom = -126.0
+grow_vertical = 2
+tooltip_text = "One-time army size increase."
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Conscription"
+
+[node name="ResourceGatheringI" type="Button" parent="TerritoryTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 152.0
+offset_top = 120.0
+offset_right = 329.0
+offset_bottom = 157.0
+grow_vertical = 2
+tooltip_text = "Increases production of all resources."
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Resource Gathering I"
+
+[node name="ResourceGatheringII" type="Button" parent="TerritoryTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 152.0
+offset_top = 160.0
+offset_right = 329.0
+offset_bottom = 197.0
+grow_vertical = 2
+tooltip_text = "Increases production of all resources."
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Resource Gathering II"
+
+[node name="LumberMill" type="Button" parent="TerritoryTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 371.0
+offset_top = 50.0
+offset_right = 490.0
+offset_bottom = 87.0
+grow_vertical = 2
+tooltip_text = "Increases wood production (Locked)"
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Lumber Mill"
+
+[node name="Brickworks" type="Button" parent="TerritoryTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 371.0
+offset_top = 89.0
+offset_right = 490.0
+offset_bottom = 126.0
+grow_vertical = 2
+tooltip_text = "Increases brick production (Locked)"
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Brickworks"
+
+[node name="IronSmelting" type="Button" parent="TerritoryTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 371.0
+offset_top = 128.0
+offset_right = 490.0
+offset_bottom = 165.0
+grow_vertical = 2
+tooltip_text = "Increases Iron Production. (Locked)"
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Iron Smelting"
+
+[node name="Cultivation" type="Button" parent="TerritoryTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 371.0
+offset_top = 167.0
+offset_right = 490.0
+offset_bottom = 204.0
+grow_vertical = 2
+tooltip_text = "Increases Grain Production. (Locked)"
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Cultivation"
+
+[node name="GoldProspecting" type="Button" parent="TerritoryTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 559.0
+offset_top = 88.0
+offset_right = 702.0
+offset_bottom = 125.0
+grow_vertical = 2
+tooltip_text = "Increases empire's gold production. (Locked)"
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Gold Prospecting"
+
+[node name="ImmigrationI" type="Button" parent="TerritoryTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 569.0
+offset_top = 179.0
+offset_right = 688.0
+offset_bottom = 216.0
+grow_vertical = 2
+tooltip_text = "Increases population growth rate"
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Immigration I"
+
+[node name="ImmigrationII" type="Button" parent="TerritoryTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 569.0
+offset_top = 218.0
+offset_right = 690.0
+offset_bottom = 255.0
+grow_vertical = 2
+tooltip_text = "Increases population growth rate"
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Immigration II"
+
+[node name="MilitaryPathLabel" type="Label" parent="TerritoryTree"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -76.5
+offset_top = 6.0
+offset_right = 76.5
+offset_bottom = 49.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 35
+text = "Military Path"
+
+[node name="EconomicPathLabel" type="Label" parent="TerritoryTree"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -76.5
+offset_top = -50.0
+offset_right = 76.5
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 35
+text = "Economic Path"
+
+[node name="Lines" type="Node2D" parent="TerritoryTree"]
+
+[node name="Line2D" type="Line2D" parent="TerritoryTree/Lines"]
+position = Vector2(53, 296)
+points = PackedVector2Array(0, 0, 0, -87, 127, -87)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D2" type="Line2D" parent="TerritoryTree/Lines"]
+position = Vector2(53, 349)
+points = PackedVector2Array(0, 0, 0, 118, 96, 118)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D3" type="Line2D" parent="TerritoryTree/Lines"]
+position = Vector2(243, 479)
+points = PackedVector2Array(0, 0, 0, 3)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D4" type="Line2D" parent="TerritoryTree/Lines"]
+position = Vector2(232, 190)
+points = PackedVector2Array(0, 0, 0, 6.5)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D5" type="Line2D" parent="TerritoryTree/Lines"]
+position = Vector2(232, 144)
+points = PackedVector2Array(0, 0, 0, 6.5)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D6" type="Line2D" parent="TerritoryTree/Lines"]
+position = Vector2(233, 232)
+points = PackedVector2Array(0, 0, 0, 6, 150, 6)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D7" type="Line2D" parent="TerritoryTree/Lines"]
+position = Vector2(293, 215)
+points = PackedVector2Array(0, 0, 39, 0, 39, -81, 84, -81)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D8" type="Line2D" parent="TerritoryTree/Lines"]
+position = Vector2(480, 240)
+points = PackedVector2Array(0, 0, 76, 0)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D9" type="Line2D" parent="TerritoryTree/Lines"]
+position = Vector2(481, 131)
+points = PackedVector2Array(0, 0, 71, 0)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D10" type="Line2D" parent="TerritoryTree/Lines"]
+position = Vector2(620, 153)
+points = PackedVector2Array(0, 0, 0, 28, 129, 28)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D11" type="Line2D" parent="TerritoryTree/Lines"]
+position = Vector2(620, 213)
+points = PackedVector2Array(0, 0, 0, -31, 129, -31)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D12" type="Line2D" parent="TerritoryTree/Lines"]
+position = Vector2(341, 465)
+points = PackedVector2Array(0, 0, 10, 0, 10, -70, 23, -70)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D13" type="Line2D" parent="TerritoryTree/Lines"]
+position = Vector2(341, 465)
+points = PackedVector2Array(0, 0, 10, 0, 10, -33, 23, -33)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D14" type="Line2D" parent="TerritoryTree/Lines"]
+position = Vector2(341, 465)
+points = PackedVector2Array(0, 0, 10, 0, 10, 10, 23, 10)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D15" type="Line2D" parent="TerritoryTree/Lines"]
+position = Vector2(341, 465)
+points = PackedVector2Array(0, 0, 10, 0, 10, 45, 23, 45)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D16" type="Line2D" parent="TerritoryTree/Lines"]
+position = Vector2(477, 463)
+points = PackedVector2Array(75, -30, 35, -30, 35, -70, 23, -70)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D17" type="Line2D" parent="TerritoryTree/Lines"]
+position = Vector2(477, 463)
+points = PackedVector2Array(75, -30, 23, -30)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D18" type="Line2D" parent="TerritoryTree/Lines"]
+position = Vector2(477, 463)
+points = PackedVector2Array(75, -30, 35, -30, 35, 10, 23, 10)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D19" type="Line2D" parent="TerritoryTree/Lines"]
+position = Vector2(503, 513)
+points = PackedVector2Array(0, 0, 11, 0, 11, 9, 60, 9)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D20" type="Line2D" parent="TerritoryTree/Lines"]
+position = Vector2(624, 544)
+points = PackedVector2Array(0, 0, 0, 3)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D21" type="Line2D" parent="TerritoryTree/Lines"]
+position = Vector2(620, 258)
+points = PackedVector2Array(0, 0, 0, 3)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D22" type="Line2D" parent="TerritoryTree/Lines"]
+position = Vector2(619, 109)
+points = PackedVector2Array(0, 0, 0, 3)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="ConfirmDialogue" type="Control" parent="TerritoryTree"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fill" type="ColorRect" parent="TerritoryTree/ConfirmDialogue"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.843137)
+
+[node name="Title" type="Label" parent="TerritoryTree/ConfirmDialogue"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -117.5
+offset_top = 5.0
+offset_right = 117.5
+offset_bottom = 44.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 32
+text = "Resource Gathering II"
+horizontal_alignment = 1
+
+[node name="CostsLabel" type="Label" parent="TerritoryTree/ConfirmDialogue"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.5
+offset_top = 60.0
+offset_right = 20.5
+offset_bottom = 91.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 25
+text = "Costs:"
+
+[node name="WoodIcon" type="Sprite2D" parent="TerritoryTree/ConfirmDialogue"]
+position = Vector2(129, 119)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("7_3xs03")
+
+[node name="WoodValue" type="Label" parent="TerritoryTree/ConfirmDialogue"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.0
+offset_top = 107.0
+offset_right = 34.0
+offset_bottom = 143.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 25
+text = "100"
+
+[node name="StoneIcon" type="Sprite2D" parent="TerritoryTree/ConfirmDialogue"]
+position = Vector2(226, 119)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("8_lnjj5")
+
+[node name="StoneValue" type="Label" parent="TerritoryTree/ConfirmDialogue"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 54.0
+offset_top = 107.0
+offset_right = 133.0
+offset_bottom = 143.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 25
+text = "100"
+
+[node name="GrainIcon" type="Sprite2D" parent="TerritoryTree/ConfirmDialogue"]
+position = Vector2(129, 175)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("9_b83j0")
+
+[node name="GrainValue" type="Label" parent="TerritoryTree/ConfirmDialogue"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -46.0
+offset_top = 163.0
+offset_right = 33.0
+offset_bottom = 199.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 25
+text = "100"
+
+[node name="IronIcon" type="Sprite2D" parent="TerritoryTree/ConfirmDialogue"]
+position = Vector2(226, 175)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("12_xebub")
+
+[node name="IronValue" type="Label" parent="TerritoryTree/ConfirmDialogue"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 51.0
+offset_top = 163.0
+offset_right = 130.0
+offset_bottom = 199.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 25
+text = "100"
+
+[node name="FinalConfirm" type="Button" parent="TerritoryTree/ConfirmDialogue"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 240.0
+offset_right = 302.0
+offset_bottom = 275.0
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 22
+text = "Confirm"
+
+[node name="Cancel" type="Button" parent="TerritoryTree/ConfirmDialogue"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 240.0
+offset_right = 153.0
+offset_bottom = 275.0
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 22
+text = "Cancel"
+
+[node name="GlobalTree" type="Control" parent="."]
+visible = false
+z_index = 5
+layout_mode = 3
+anchors_preset = 0
+offset_left = 250.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Fill" type="ColorRect" parent="GlobalTree"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.843137)
+
+[node name="Research" type="Button" parent="GlobalTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 6.0
+offset_top = -24.5
+offset_right = 100.0
+offset_bottom = 20.5
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 30
+disabled = true
+text = "Research"
+
+[node name="MilitaryAcademy" type="Button" parent="GlobalTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 182.0
+offset_top = -235.0
+offset_right = 331.0
+offset_bottom = -197.0
+grow_vertical = 2
+tooltip_text = "Enhances global army efficacy."
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Military Academy"
+
+[node name="GoldTreasury" type="Button" parent="GlobalTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 185.0
+offset_top = -101.0
+offset_right = 334.0
+offset_bottom = -63.0
+grow_vertical = 2
+tooltip_text = "Collect gold found in territories."
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Gold Treasury"
+
+[node name="Taxation" type="Button" parent="GlobalTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 420.0
+offset_top = -142.0
+offset_right = 539.0
+offset_bottom = -104.0
+grow_vertical = 2
+tooltip_text = "Gain gold from each territory each turn."
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Taxation"
+
+[node name="GoldPanning" type="Button" parent="GlobalTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 421.0
+offset_top = -56.0
+offset_right = 540.0
+offset_bottom = -18.0
+grow_vertical = 2
+tooltip_text = "Unlocks the 'Gold Prospecting' territory upgrade."
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Gold Panning"
+
+[node name="Medicine" type="Button" parent="GlobalTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 646.0
+offset_top = -99.0
+offset_right = 726.0
+offset_bottom = -61.0
+grow_vertical = 2
+tooltip_text = "Leads to population growth over time."
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Medicine"
+
+[node name="RoadBuilding" type="Button" parent="GlobalTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 417.0
+offset_top = -232.0
+offset_right = 538.0
+offset_bottom = -194.0
+grow_vertical = 2
+tooltip_text = "Less troops lost when transferring."
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Road Building"
+
+[node name="SiegeMastery" type="Button" parent="GlobalTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 623.0
+offset_top = -290.0
+offset_right = 744.0
+offset_bottom = -252.0
+grow_vertical = 2
+tooltip_text = "Unlocks the 'Siege Engines' territory upgrades."
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Siege Mastery"
+
+[node name="WallBuilding" type="Button" parent="GlobalTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 624.0
+offset_top = -190.0
+offset_right = 742.0
+offset_bottom = -152.0
+grow_vertical = 2
+tooltip_text = "Unlocks 'Fortifications' territory upgrades."
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Wall Building"
+
+[node name="AgricultureI" type="Button" parent="GlobalTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 209.0
+offset_top = 98.0
+offset_right = 317.0
+offset_bottom = 136.0
+grow_vertical = 2
+tooltip_text = "Boosts resource production across the empire."
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Agriculture I"
+
+[node name="Forestry" type="Button" parent="GlobalTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 421.0
+offset_top = 25.0
+offset_right = 546.0
+offset_bottom = 63.0
+grow_vertical = 2
+tooltip_text = "Unlocks the 'Lumber Mill' territory upgrade."
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Forestry"
+
+[node name="Masonry" type="Button" parent="GlobalTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 422.0
+offset_top = 69.0
+offset_right = 547.0
+offset_bottom = 107.0
+grow_vertical = 2
+tooltip_text = "Unlocks the 'Brickworks' territory upgrade."
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Masonry"
+
+[node name="Blacksmiths" type="Button" parent="GlobalTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 421.0
+offset_top = 115.0
+offset_right = 546.0
+offset_bottom = 153.0
+grow_vertical = 2
+tooltip_text = "Unlocks the 'Iron Smelting' territory upgrade."
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Blacksmiths"
+
+[node name="CropRotation" type="Button" parent="GlobalTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 422.0
+offset_top = 161.0
+offset_right = 547.0
+offset_bottom = 199.0
+grow_vertical = 2
+tooltip_text = "Unlocks the 'Cultivation' territory upgrade."
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Crop Rotation"
+
+[node name="AgricultureII" type="Button" parent="GlobalTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 628.0
+offset_top = 92.0
+offset_right = 743.0
+offset_bottom = 130.0
+grow_vertical = 2
+tooltip_text = "Boosts resource production across the empire."
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Agriculture II"
+
+[node name="PoliticalIdeology" type="Button" parent="GlobalTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 193.0
+offset_top = 260.0
+offset_right = 339.0
+offset_bottom = 298.0
+grow_vertical = 2
+tooltip_text = "Unlocks global political upgrades path."
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Political Ideology"
+
+[node name="Espionage" type="Button" parent="GlobalTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 444.0
+offset_top = 261.0
+offset_right = 531.0
+offset_bottom = 299.0
+grow_vertical = 2
+tooltip_text = "Unlocks the 'Espionage' territory upgrades."
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Espionage"
+
+[node name="Pacifism" type="Button" parent="GlobalTree" groups=["territory_tree_button"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 652.0
+offset_top = 260.0
+offset_right = 726.0
+offset_bottom = 298.0
+grow_vertical = 2
+tooltip_text = "Decreases enemy territory hostility."
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Pacifism"
+
+[node name="GoldIcon" type="Sprite2D" parent="GlobalTree"]
+position = Vector2(31.0002, 30.0001)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("11_x3fqy")
+
+[node name="GoldValue" type="Label" parent="GlobalTree"]
+layout_mode = 0
+offset_left = 63.0002
+offset_top = 13.0001
+offset_right = 103.0
+offset_bottom = 44.0001
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 25
+text = "100"
+
+[node name="ResearchIcon" type="Sprite2D" parent="GlobalTree"]
+position = Vector2(151, 30.0001)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("12_gvddb")
+
+[node name="ResearchValue" type="Label" parent="GlobalTree"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 12.0001
+offset_right = 224.0
+offset_bottom = 43.0001
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 25
+text = "100"
+
+[node name="Lines" type="Node2D" parent="GlobalTree"]
+
+[node name="Line2D" type="Line2D" parent="GlobalTree/Lines"]
+position = Vector2(50, 295)
+points = PackedVector2Array(0, 10, 0, -55, 140, -55)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D2" type="Line2D" parent="GlobalTree/Lines"]
+position = Vector2(52, 344)
+points = PackedVector2Array(0, 0, 0, 97, 150, 97)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D3" type="Line2D" parent="GlobalTree/Lines"]
+position = Vector2(52, 344)
+points = PackedVector2Array(0, 0, 0, 260, 135, 260)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D4" type="Line2D" parent="GlobalTree/Lines"]
+position = Vector2(50, 295)
+points = PackedVector2Array(0, 10, 0, -186, 130, -186)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D5" type="Line2D" parent="GlobalTree/Lines"]
+position = Vector2(334, 111)
+points = PackedVector2Array(0, 0, 80, 0)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D6" type="Line2D" parent="GlobalTree/Lines"]
+position = Vector2(543, 111)
+points = PackedVector2Array(0, 0, 35, 0, 35, 45, 77, 45)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D7" type="Line2D" parent="GlobalTree/Lines"]
+position = Vector2(543, 111)
+points = PackedVector2Array(0, 0, 35, 0, 35, -60, 77, -60)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D8" type="Line2D" parent="GlobalTree/Lines"]
+position = Vector2(331, 244)
+points = PackedVector2Array(0, 0, 35, 0, 35, 45, 80, 45)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D9" type="Line2D" parent="GlobalTree/Lines"]
+position = Vector2(331, 244)
+points = PackedVector2Array(0, 0, 35, 0, 35, -40, 85, -40)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D10" type="Line2D" parent="GlobalTree/Lines"]
+position = Vector2(539, 203)
+points = PackedVector2Array(0, 0, 40, 0, 40, 40, 100, 40)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D11" type="Line2D" parent="GlobalTree/Lines"]
+position = Vector2(539, 291)
+points = PackedVector2Array(5, 0, 40, 0, 40, -48, 100, -48)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D12" type="Line2D" parent="GlobalTree/Lines"]
+position = Vector2(341, 604)
+points = PackedVector2Array(0, 0, 101, 0)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D13" type="Line2D" parent="GlobalTree/Lines"]
+position = Vector2(531, 604)
+points = PackedVector2Array(0, 0, 122, 0)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D14" type="Line2D" parent="GlobalTree/Lines"]
+position = Vector2(325, 442)
+points = PackedVector2Array(0, 0, 40, 0, 40, -74, 93, -74)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D15" type="Line2D" parent="GlobalTree/Lines"]
+position = Vector2(325, 442)
+points = PackedVector2Array(0, 0, 40, 0, 40, -29, 93, -29)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D16" type="Line2D" parent="GlobalTree/Lines"]
+position = Vector2(325, 442)
+points = PackedVector2Array(0, 0, 40, 0, 40, 15, 93, 15)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D17" type="Line2D" parent="GlobalTree/Lines"]
+position = Vector2(325, 442)
+points = PackedVector2Array(0, 0, 40, 0, 40, 60, 93, 60)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D18" type="Line2D" parent="GlobalTree/Lines"]
+position = Vector2(550, 367)
+points = PackedVector2Array(0, 0, 40, 0, 40, 68, 78, 68)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D19" type="Line2D" parent="GlobalTree/Lines"]
+position = Vector2(550, 367)
+points = PackedVector2Array(0, 46, 40, 46, 40, 68, 78, 68)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D20" type="Line2D" parent="GlobalTree/Lines"]
+position = Vector2(550, 367)
+points = PackedVector2Array(0, 90, 40, 90, 40, 68, 78, 68)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D21" type="Line2D" parent="GlobalTree/Lines"]
+position = Vector2(550, 367)
+points = PackedVector2Array(0, 137, 40, 137, 40, 68, 78, 68)
+width = 3.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="ConfirmDialogue" type="Control" parent="GlobalTree"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -104.5
+offset_right = 200.0
+offset_bottom = 104.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fill" type="ColorRect" parent="GlobalTree/ConfirmDialogue"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.843137)
+
+[node name="Title" type="Label" parent="GlobalTree/ConfirmDialogue"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -117.5
+offset_top = 5.0
+offset_right = 117.5
+offset_bottom = 44.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 32
+text = "Political Ideology"
+horizontal_alignment = 1
+
+[node name="CostsLabel" type="Label" parent="GlobalTree/ConfirmDialogue"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.5
+offset_top = 55.0
+offset_right = 20.5
+offset_bottom = 86.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 25
+text = "Costs:"
+
+[node name="GoldIcon" type="Sprite2D" parent="GlobalTree/ConfirmDialogue"]
+position = Vector2(129, 114)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("11_x3fqy")
+
+[node name="GoldValue" type="Label" parent="GlobalTree/ConfirmDialogue"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.0
+offset_top = 102.0
+offset_right = 34.0
+offset_bottom = 138.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 25
+text = "100"
+
+[node name="ResearchIcon" type="Sprite2D" parent="GlobalTree/ConfirmDialogue"]
+position = Vector2(226, 114)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("12_gvddb")
+
+[node name="ResearchValue" type="Label" parent="GlobalTree/ConfirmDialogue"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 54.0
+offset_top = 102.0
+offset_right = 133.0
+offset_bottom = 138.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 25
+text = "100"
+
+[node name="FinalConfirm" type="Button" parent="GlobalTree/ConfirmDialogue"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 158.0
+offset_right = 302.0
+offset_bottom = 193.0
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 22
+text = "Confirm"
+
+[node name="Cancel" type="Button" parent="GlobalTree/ConfirmDialogue"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 158.0
+offset_right = 153.0
+offset_bottom = 193.0
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 22
+text = "Cancel"
+
+[node name="ResearchTree" type="Button" parent="."]
+offset_left = 257.0
+offset_top = 6.0
+offset_right = 322.0
+offset_bottom = 71.0
+icon = ExtResource("13_tkfme")
+expand_icon = true
+
+[connection signal="global_upgrade" from="." to="." method="_on_global_upgrade_requested"]
+[connection signal="upgrade" from="." to="." method="_on_upgrade_requested"]
 [connection signal="pressed" from="Sidebar/Confirm" to="." method="_on_confirm_pressed"]
 [connection signal="pressed" from="Sidebar/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="TransferSelect/Confirm" to="." method="_on_transfer_confirm_pressed"]
+[connection signal="pressed" from="TerritoryTree/Base" to="." method="_on_base_pressed"]
+[connection signal="pressed" from="TerritoryTree/BarracksI" to="." method="_on_barracks_i_pressed"]
+[connection signal="pressed" from="TerritoryTree/BarracksII" to="." method="_on_barracks_ii_pressed"]
+[connection signal="pressed" from="TerritoryTree/BarracksIII" to="." method="_on_barracks_iii_pressed"]
+[connection signal="pressed" from="TerritoryTree/PlunderI" to="." method="_on_plunder_i_pressed"]
+[connection signal="pressed" from="TerritoryTree/PlunderII" to="." method="_on_plunder_ii_pressed"]
+[connection signal="pressed" from="TerritoryTree/Espionage" to="." method="_on_espionage_pressed"]
+[connection signal="pressed" from="TerritoryTree/SiegeEnginesI" to="." method="_on_siege_engines_i_pressed"]
+[connection signal="pressed" from="TerritoryTree/SiegeEnginesII" to="." method="_on_siege_engines_ii_pressed"]
+[connection signal="pressed" from="TerritoryTree/FortificationsI" to="." method="_on_fortifications_i_pressed"]
+[connection signal="pressed" from="TerritoryTree/FortificationsII" to="." method="_on_fortifications_ii_pressed"]
+[connection signal="pressed" from="TerritoryTree/Conscription" to="." method="_on_conscription_pressed"]
+[connection signal="pressed" from="TerritoryTree/ResourceGatheringI" to="." method="_on_resource_gathering_i_pressed"]
+[connection signal="pressed" from="TerritoryTree/ResourceGatheringII" to="." method="_on_resource_gathering_ii_pressed"]
+[connection signal="pressed" from="TerritoryTree/LumberMill" to="." method="_on_lumber_mill_pressed"]
+[connection signal="pressed" from="TerritoryTree/Brickworks" to="." method="_on_brickworks_pressed"]
+[connection signal="pressed" from="TerritoryTree/IronSmelting" to="." method="_on_iron_smelting_pressed"]
+[connection signal="pressed" from="TerritoryTree/Cultivation" to="." method="_on_cultivation_pressed"]
+[connection signal="pressed" from="TerritoryTree/GoldProspecting" to="." method="_on_gold_prospecting_pressed"]
+[connection signal="pressed" from="TerritoryTree/ImmigrationI" to="." method="_on_immigration_i_pressed"]
+[connection signal="pressed" from="TerritoryTree/ImmigrationII" to="." method="_on_immigration_ii_pressed"]
+[connection signal="pressed" from="TerritoryTree/ConfirmDialogue/FinalConfirm" to="." method="_on_final_confirm_pressed"]
+[connection signal="pressed" from="TerritoryTree/ConfirmDialogue/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="GlobalTree/Research" to="." method="_on_research_pressed"]
+[connection signal="pressed" from="GlobalTree/MilitaryAcademy" to="." method="_on_military_academy_pressed"]
+[connection signal="pressed" from="GlobalTree/GoldTreasury" to="." method="_on_gold_treasury_pressed"]
+[connection signal="pressed" from="GlobalTree/Taxation" to="." method="_on_taxation_pressed"]
+[connection signal="pressed" from="GlobalTree/GoldPanning" to="." method="_on_gold_panning_pressed"]
+[connection signal="pressed" from="GlobalTree/Medicine" to="." method="_on_medicine_pressed"]
+[connection signal="pressed" from="GlobalTree/RoadBuilding" to="." method="_on_road_building_pressed"]
+[connection signal="pressed" from="GlobalTree/SiegeMastery" to="." method="_on_siege_mastery_pressed"]
+[connection signal="pressed" from="GlobalTree/WallBuilding" to="." method="_on_wall_building_pressed"]
+[connection signal="pressed" from="GlobalTree/AgricultureI" to="." method="_on_agriculture_i_pressed"]
+[connection signal="pressed" from="GlobalTree/Forestry" to="." method="_on_forestry_pressed"]
+[connection signal="pressed" from="GlobalTree/Masonry" to="." method="_on_masonry_pressed"]
+[connection signal="pressed" from="GlobalTree/Blacksmiths" to="." method="_on_blacksmiths_pressed"]
+[connection signal="pressed" from="GlobalTree/CropRotation" to="." method="_on_crop_rotation_pressed"]
+[connection signal="pressed" from="GlobalTree/AgricultureII" to="." method="_on_agriculture_ii_pressed"]
+[connection signal="pressed" from="GlobalTree/PoliticalIdeology" to="." method="_on_political_ideology_pressed"]
+[connection signal="pressed" from="GlobalTree/Espionage" to="." method="_on_global_espionage_pressed"]
+[connection signal="pressed" from="GlobalTree/Pacifism" to="." method="_on_pacifism_pressed"]
+[connection signal="pressed" from="GlobalTree/ConfirmDialogue/FinalConfirm" to="." method="_on_global_final_confirm_pressed"]
+[connection signal="pressed" from="GlobalTree/ConfirmDialogue/Cancel" to="." method="_on_global_cancel_pressed"]
+[connection signal="pressed" from="ResearchTree" to="." method="_on_research_tree_pressed"]
