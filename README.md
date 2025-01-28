@@ -1,6 +1,6 @@
 # Conquest
 ![Wakatime](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fwaka.hackclub.com%2Fapi%2Fcompat%2Fshields%2Fv1%2FU081TBVQLCX%2Fall_time%2Fproject%253AConquest&query=message&label=Wakatime)
-![License](https://img.shields.io/github/license/madavidcoder/conquest)
+![License](https://img.shields.io/github/license/madavidcoder/Conquest)
 ![Created At](https://img.shields.io/github/created-at/madavidcoder/conquest)
 ![Top Language](https://img.shields.io/github/languages/top/madavidcoder/conquest)
 ![Commits](https://img.shields.io/github/commit-activity/t/madavidcoder/conquest)
