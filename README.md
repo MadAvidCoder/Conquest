@@ -10,13 +10,14 @@
 ![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fmadavidcoder.github.io%2FConquest)
 
 
+<div>
 <img src="https://cloud-o8bkmj3fk-hack-club-bot.vercel.app/4screenshot_2025-01-29_091311.png" alt="Attack Phase" width="300"/>
 <img src="https://cloud-o8bkmj3fk-hack-club-bot.vercel.app/2screenshot_2025-01-29_090913.png" alt="Transfer Troops Dialogue" width="300"/>
-<br>
-<br>
+</div>
+<div>
 <img src="https://cloud-o8bkmj3fk-hack-club-bot.vercel.app/1screenshot_2025-01-29_090623.png" alt="Territory Upgrade Tree" width="300"/>
 <img src="https://cloud-o8bkmj3fk-hack-club-bot.vercel.app/3screenshot_2025-01-29_091037.png" alt="Global Upgrade Tree" width="300"/>
-
+</div>
 
 ### Play it [here](https://madavidcoder.github.io/Conquest)!
 Conquer medieval Europe in this unique turn-based grand strategy game of empires and conflicts.
