@@ -72,6 +72,7 @@ theme_override_font_sizes/font_size = 47
 text = "CONQUEST"
 
 [node name="Territory" type="Label" parent="Sidebar" groups=["sidebar"]]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -88,6 +89,7 @@ text = "Scotland"
 horizontal_alignment = 1
 
 [node name="Controller" type="Label" parent="Sidebar" groups=["sidebar"]]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -105,6 +107,7 @@ text = "NEUTRAL"
 horizontal_alignment = 1
 
 [node name="Population" type="Label" parent="Sidebar" groups=["sidebar"]]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -121,6 +124,7 @@ text = "Pop. Unknown"
 horizontal_alignment = 1
 
 [node name="Army" type="Label" parent="Sidebar" groups=["sidebar"]]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -206,11 +210,13 @@ text = "Army Unknown"
 horizontal_alignment = 1
 
 [node name="WoodIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
+visible = false
 position = Vector2(58, 309)
 scale = Vector2(0.075, 0.075)
 texture = ExtResource("7_3xs03")
 
 [node name="WoodValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -226,11 +232,13 @@ theme_override_font_sizes/font_size = 25
 text = "100"
 
 [node name="StoneIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
+visible = false
 position = Vector2(155, 309)
 scale = Vector2(0.075, 0.075)
 texture = ExtResource("8_lnjj5")
 
 [node name="StoneValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -246,11 +254,13 @@ theme_override_font_sizes/font_size = 25
 text = "100"
 
 [node name="GrainIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
+visible = false
 position = Vector2(58, 365)
 scale = Vector2(0.075, 0.075)
 texture = ExtResource("9_b83j0")
 
 [node name="GrainValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -266,11 +276,13 @@ theme_override_font_sizes/font_size = 25
 text = "100"
 
 [node name="IronIcon" type="Sprite2D" parent="Sidebar" groups=["resource", "sidebar"]]
+visible = false
 position = Vector2(155, 365)
 scale = Vector2(0.075, 0.075)
 texture = ExtResource("12_xebub")
 
 [node name="IronValue" type="Label" parent="Sidebar" groups=["resource", "sidebar"]]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -286,6 +298,7 @@ theme_override_font_sizes/font_size = 25
 text = "100"
 
 [node name="Confirm" type="Button" parent="Sidebar"]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -303,6 +316,7 @@ text = "ATTACK
 ..."
 
 [node name="Continue" type="Button" parent="Sidebar"]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -1730,6 +1744,108 @@ offset_bottom = 71.0
 icon = ExtResource("13_tkfme")
 expand_icon = true
 
+[node name="Start" type="Control" parent="."]
+z_index = 6
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Fill" type="ColorRect" parent="Start"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.862745)
+
+[node name="Title" type="Label" parent="Start"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.5
+offset_top = -47.0
+offset_right = 189.5
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_sn7en")
+theme_override_font_sizes/font_size = 78
+text = "CONQUEST"
+
+[node name="Begin" type="Button" parent="Start"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = 196.0
+offset_right = 44.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 39
+text = "Begin!"
+
+[node name="End" type="Control" parent="."]
+visible = false
+z_index = 6
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Fill" type="ColorRect" parent="End"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.862745)
+
+[node name="Title" type="Label" parent="End"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.5
+offset_top = -47.0
+offset_right = 189.5
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_sn7en")
+theme_override_font_sizes/font_size = 78
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="Restart" type="Button" parent="End"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = 196.0
+offset_right = 44.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_0so7v")
+theme_override_font_sizes/font_size = 39
+text = "Play Again!"
+
 [connection signal="global_upgrade" from="." to="." method="_on_global_upgrade_requested"]
 [connection signal="upgrade" from="." to="." method="_on_upgrade_requested"]
 [connection signal="pressed" from="Sidebar/Confirm" to="." method="_on_confirm_pressed"]
@@ -1779,3 +1895,5 @@ expand_icon = true
 [connection signal="pressed" from="GlobalTree/ConfirmDialogue/FinalConfirm" to="." method="_on_global_final_confirm_pressed"]
 [connection signal="pressed" from="GlobalTree/ConfirmDialogue/Cancel" to="." method="_on_global_cancel_pressed"]
 [connection signal="pressed" from="ResearchTree" to="." method="_on_research_tree_pressed"]
+[connection signal="pressed" from="Start/Begin" to="." method="_on_begin_pressed"]
+[connection signal="pressed" from="End/Restart" to="." method="_on_restart_pressed"]

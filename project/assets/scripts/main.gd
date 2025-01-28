@@ -635,7 +635,7 @@ func _process(delta: float) ->  void:
 	cursor.position = get_global_mouse_position()
 	
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		if cursor.position.x > 250 and not $TransferSelect.visible and not $TerritoryTree.visible and not $GlobalTree.visible:
+		if cursor.position.x > 250 and not $TransferSelect.visible and not $TerritoryTree.visible and not $GlobalTree.visible and not $Start.visible and not $End.visible:
 			if "country" in str(cursor.get_overlapping_areas()):
 				for i in cursor.get_overlapping_areas():
 					if "country" in i.name:
@@ -761,7 +761,7 @@ func _process(delta: float) ->  void:
 				if phase == ATTACK:
 					$Sidebar/Confirm.text = "ATTACK\n..."
 				elif phase == TRANSFER:
-					$Sidebar/Confirm.text = "TRANSFER TO\n..."
+					$Sidebar/Confirm.text = "TRANSFER FROM\n..."
 				selected = false
 				for i in path:
 					selection_marks[i].hide()
@@ -1014,6 +1014,19 @@ func _on_continue_pressed() -> void:
 			selected = false
 			for i in path:
 				selection_marks[i].hide()
+		var won: bool = true
+		var lost: bool = true
+		for i in COUNTRIES.values():
+			if stats[i]["relation"] != ALLIED:
+				won = false
+			else:
+				lost = false
+		if lost:
+			$End.show()
+			$End/Title.text = "Game Over"
+		elif lost:
+			$End.show()
+			$End/Title.text = "You Won"
 
 func _on_transfer_confirm_pressed() -> void:
 	var troops = clamp($TransferSelect/Soldiers.value, $TransferSelect/Soldiers.min_value, $TransferSelect/Soldiers.max_value)
@@ -1274,3 +1287,11 @@ func _on_global_espionage_pressed() -> void:
 
 func _on_pacifism_pressed() -> void:
 	global_upgrade.emit("Pacifism")
+
+func _on_begin_pressed() -> void:
+	$Start.hide()
+	$Sidebar/Confirm.show()
+	$Sidebar/Continue.show()
+
+func _on_restart_pressed() -> void:
+	get_tree().reload_current_scene()
