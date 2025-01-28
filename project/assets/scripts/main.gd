@@ -66,7 +66,7 @@ const NETWORK: Dictionary = {
 	"Palermo": ["Naples", "Sardinia"],
 }
 
-@onready var cursor = $Cursor
+@onready var cursor: Node = $Cursor
 
 var territory_tree: Dictionary
 
@@ -495,9 +495,8 @@ func _ready() -> void:
 		}
 		stats[i]["army"] = stats[i]["population"] * randf_range(0.1, 0.15)
 		
-		# Opponent Masks
-		var new_texture = load("res://assets/map/opponent/"+i+".png")
-		var new_sprite = Sprite2D.new()
+		var new_texture: Variant = load("res://assets/map/opponent/"+i+".png")
+		var new_sprite: Sprite2D = Sprite2D.new()
 		new_sprite.z_index = 2
 		new_sprite.texture = new_texture
 		new_sprite.position = Vector2(574.5, 355)
@@ -506,7 +505,6 @@ func _ready() -> void:
 		add_child(new_sprite)
 		opposition_marks[i] = new_sprite
 	
-		# Selection Masks
 		new_texture = load("res://assets/map/selected/"+i+".png")
 		new_sprite = Sprite2D.new()
 		new_sprite.texture = new_texture
@@ -518,23 +516,22 @@ func _ready() -> void:
 		new_sprite.hide()
 		selection_marks[i] = new_sprite
 	
-		# Click Masks
 		new_texture = load("res://assets/map/click_masks/"+i+".png.bmp")
-		var polygons = new_texture.opaque_to_polygons(Rect2(Vector2.ZERO, new_texture.get_size()))
-		var new_area = Area2D.new()
+		var polygons: Array[PackedVector2Array] = new_texture.opaque_to_polygons(Rect2(Vector2.ZERO, new_texture.get_size()))
+		var new_area: Area2D = Area2D.new()
 		new_area.position = Vector2(-338, -159)
 		new_area.scale = Vector2(0.951, 0.951)
 		new_area.name = i + "_country_area"
 		add_child(new_area)
 		for j in polygons:
-			var new_collider = CollisionPolygon2D.new()
+			var new_collider: CollisionPolygon2D = CollisionPolygon2D.new()
 			new_collider.polygon = j
 			new_area.add_child(new_collider)
 	
-	var starting_territories = randi_range(2,5)
-	var yours = []
+	var starting_territories: int = randi_range(2,5)
+	var yours: PackedStringArray = []
 	yours.append(NETWORK.keys().pick_random())
-	var iterator = 0
+	var iterator: int = 0
 	while starting_territories > 0:
 		for i in NETWORK[yours[iterator]]:
 			starting_territories -= 1
@@ -589,7 +586,7 @@ func _process(delta: float) ->  void:
 			if "country" in str(cursor.get_overlapping_areas()):
 				for i in cursor.get_overlapping_areas():
 					if "country" in i.name:
-						var sel = i.name.split("_")[0]
+						var sel: String = i.name.split("_")[0]
 						if phase == ATTACK and selected and stats[$Sidebar/Territory.text]["relation"] == ALLIED and sel in NETWORK[$Sidebar/Territory.text] and stats[sel]["relation"] != ALLIED:
 							get_tree().call_group("secondary", "show")
 							$Sidebar/TerritoryTo.text = sel
@@ -735,7 +732,7 @@ func _on_confirm_pressed() -> void:
 		if stats[secondary]["army"] > 0:
 			opposition_marks[secondary].self_modulate = Color(1, 0.28, 0.28, 0.79)
 			stats[secondary]["relation"] = HOSTILE
-			var sel = $Sidebar/Territory.text
+			var sel: String = $Sidebar/Territory.text
 			$Sidebar/Controller.text = "Allied"
 			$Sidebar/Controller.set("theme_override_colors/font_color", Color(0,1,0))
 			$Sidebar/Population.text = format_pop(stats[sel]["population"])
@@ -757,7 +754,7 @@ func _on_confirm_pressed() -> void:
 			opposition_marks[secondary].hide()
 			stats[secondary]["army"] = lost / 2
 			selected = true
-			var sel = secondary
+			var sel: String = secondary
 			secondary = ""
 			get_tree().call_group("secondary", "hide")
 			selection_marks[$Sidebar/Territory.text].hide()
@@ -825,10 +822,10 @@ func _on_continue_pressed() -> void:
 					if randf() <= 0.5:
 						var allied: PackedStringArray = []
 						var least_allied_troops = INF
-						var least_allied = ""
+						var least_allied: String = ""
 						var neutral: PackedStringArray = []
 						var least_neutral_troops = INF
-						var least_neutral = ""
+						var least_neutral: String = ""
 						for neighbour in NETWORK[country]:
 							match stats[neighbour]["relation"]:
 								ALLIED:
