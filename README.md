@@ -48,7 +48,7 @@ After this phase, the engine will compute increases in every country's populatio
 - **Game:** [Godot Engine](https://godotengine.org/)
 
 ## ⚖️ License
-Conquest is licensed under the [MIT License](https://github.com/MadAvidCoder/Frogger/blob/main/LICENSE). You are free to use, copy, modify and/or publish this project for commercial or non-commercial purposes. Attribution is appreciated, but not required.
+Conquest is licensed under the [MIT License](https://github.com/MadAvidCoder/Conquest/blob/main/LICENSE). You are free to use, copy, modify and/or publish this project for commercial or non-commercial purposes. Attribution is appreciated, but not required.
 
 ## 🏅 Acknowledgements
 - Europe Territory Map is own work
